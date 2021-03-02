@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
 import { Link, Redirect } from 'react-router-dom';
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> 0f0c97c789a2d9418abf7667b4e9e915080439fb
 import PropTypes from 'prop-types';
 import getToken from '../services';
 import { saveUserData } from '../_redux/action';
@@ -59,6 +63,7 @@ class Login extends Component {
           onChange={ this.handleChange }
         />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <button
           type="button"
           data-testid="btn-play"
@@ -77,6 +82,8 @@ class Login extends Component {
           Configurations
         </button>
 =======
+=======
+>>>>>>> 0f0c97c789a2d9418abf7667b4e9e915080439fb
         <Link to="/trivia">
           <button
             type="button"
@@ -98,7 +105,10 @@ class Login extends Component {
             Config
           </button>
         </Link>
+<<<<<<< HEAD
 >>>>>>> 00daac418362281a1b48b7d54828ad9ff346d5cb
+=======
+>>>>>>> 0f0c97c789a2d9418abf7667b4e9e915080439fb
       </div>
     );
   }
