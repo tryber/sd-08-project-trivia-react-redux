@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 class Login extends Component {
   constructor(props) {
     super(props);
-  
+
     this.state = {
       name: '',
       email: '',
     };
-  
+
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -31,7 +31,7 @@ class Login extends Component {
           name="name"
           value={ name }
           placeholder="Nome"
-          onChange={}
+          onChange={ this.handleChange }
         />
         <input
           type="text"
@@ -42,14 +42,14 @@ class Login extends Component {
         <button
           type="button"
           data-testid="btn-play"
-          onClick={}
+          onClick={ this.handleClick }
         >
           Começar
         </button>
         <button
           type="button"
           data-testid=""
-          onClick={}
+          onClick={ this.handleClick }
         >
           Config
         </button>
