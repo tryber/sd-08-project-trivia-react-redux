@@ -1,5 +1,3 @@
-import getGravatarAPI from '../../services/gravatar';
-
 // import { getGhibliMoviesAPI, getGhibliPeopleAPI, getGhibliSpeciesAPI } from '../services';
 export const SAVE_USER = 'SAVE_USER';
 export const REQUEST_START = 'REQUEST_START';
@@ -14,19 +12,19 @@ export const saveUserData = (user) => ({
   user,
 });
 
-const requestStart = () => ({
-  type: REQUEST_START,
-});
+// const requestStart = () => ({
+//   type: REQUEST_START,
+// });
 
-const requestFail = (error) => ({
-  type: REQUEST_FAIL,
-  error,
-});
+// const requestFail = (error) => ({
+//   type: REQUEST_FAIL,
+//   error,
+// });
 
-const requestGravatarSuccess = (avatar) => ({
-  type: REQUEST_AVATAR_SUCCESS,
-  avatar,
-});
+// const requestGravatarSuccess = (avatar) => ({
+//   type: REQUEST_AVATAR_SUCCESS,
+//   avatar,
+// });
 
 // const requestPeopleSuccess = (people) => ({
 //   type: REQUEST_PEOPLE_SUCCESS,
@@ -37,17 +35,6 @@ const requestGravatarSuccess = (avatar) => ({
 //   type: REQUEST_SPECIES_SUCCESS,
 //   species,
 // });
-
-export const getGravatar = () => async (dispatch) => {
-  dispatch(requestStart());
-  try {
-    const avatar = await getGravatarAPI();
-
-    dispatch(requestGravatarSuccess(avatar));
-  } catch (error) {
-    dispatch(requestFail(error));
-  }
-};
 
 // export const fetchPeople = () => async (dispatch) => {
 //   dispatch(requestStart());

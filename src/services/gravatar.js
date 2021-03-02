@@ -4,9 +4,9 @@ const getResponse = (response) => (
     .then((json) => (response.ok ? Promise.resolve(json) : Promise.reject(json)))
 );
 
-const getGravatar = (hash) => (
+const getGravatarAPI = (hash) => (
   fetch(`https://www.gravatar.com/avatar/${hash}`)
     .then((response) => getResponse(response))
 );
 
-export default getGravatar;
+export default getGravatarAPI;

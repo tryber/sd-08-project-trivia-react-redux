@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getToken from '../services';
+import { saveUserData } from '../_redux/action';
 
 class Login extends Component {
   constructor(props) {
@@ -9,7 +12,8 @@ class Login extends Component {
     this.state = {
       name: '',
       email: '',
-      shouldRedirect: false,
+      goToGame: false,
+      goToConfig: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,11 +24,16 @@ class Login extends Component {
     this.setState({ [name]: value });
   }
 
-  async handleClick() {
-    this.setState({ shouldRedirect: true });
-    const triviaAPIResponse = await getToken();
-    const { token } = triviaAPIResponse;
-    localStorage.setItem('token', JSON.stringify(token));
+  async handleClick({ target }) {
+    const { email, name } = this.state;
+    const { saveUser } = this.props;
+    saveUser({ email, name });
+    this.setState({ [target.name]: true });
+    if (target.name === 'goToGame') {
+      const triviaAPIResponse = await getToken();
+      const { token } = triviaAPIResponse;
+      localStorage.setItem('token', JSON.stringify(token));
+    }
   }
 
   validator() {
@@ -35,8 +44,9 @@ class Login extends Component {
   }
 
   render() {
-    const { name, email, shouldRedirect } = this.state;
-    if (shouldRedirect) return <Redirect to="/trivia" />;
+    const { name, email, goToGame, goToConfig } = this.state;
+    if (goToGame) return <Redirect to="/trivia" />;
+    if (goToConfig) return <Redirect to="/config" />;
     return (
       <div>
         <input
@@ -58,6 +68,7 @@ class Login extends Component {
         <button
           type="button"
           data-testid="btn-play"
+          name="goToGame"
           disabled={ !this.validator() }
           onClick={ this.handleClick }
         >
@@ -65,7 +76,8 @@ class Login extends Component {
         </button>
         <button
           type="button"
-          data-testid=""
+          data-testid="btn-settings"
+          name="goToConfig"
           onClick={ this.handleClick }
         >
           Config
@@ -75,4 +87,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  saveUser: (user) => dispatch(saveUserData(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
+
+Login.propTypes = {
+  saveUser: PropTypes.func.isRequired,
+};
