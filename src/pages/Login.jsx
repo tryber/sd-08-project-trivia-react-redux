@@ -80,7 +80,7 @@ class Login extends Component {
           name="goToConfig"
           onClick={ this.handleClick }
         >
-          Config
+          Configurations
         </button>
       </div>
     );
