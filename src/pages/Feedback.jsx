@@ -23,7 +23,6 @@ Feedback.propTypes = {
 
 const mapStateToProp = (state) => ({
   userName: state.login.name,
-  email: state.login.email,
   avatar: state.trivia.avatar,
 });
 
