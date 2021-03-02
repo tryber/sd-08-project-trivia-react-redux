@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import getToken from '../services';
+import { saveUserData } from '../_redux/action';
 
 class Login extends Component {
   constructor(props) {
@@ -22,16 +25,15 @@ class Login extends Component {
   }
 
   async handleClick({ target }) {
+    const { email, name } = this.state;
+    const { saveUser } = this.props;
+    saveUser({ email, name });
     this.setState({ [target.name]: true });
     if (target.name === 'goToGame') {
       const triviaAPIResponse = await getToken();
       const { token } = triviaAPIResponse;
       localStorage.setItem('token', JSON.stringify(token));
     }
-  }
-
-  startConfig() {
-    this.setState({});
   }
 
   validator() {
@@ -78,11 +80,19 @@ class Login extends Component {
           name="goToConfig"
           onClick={ this.handleClick }
         >
-          Config
+          Configurations
         </button>
       </div>
     );
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  saveUser: (user) => dispatch(saveUserData(user)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
+
+Login.propTypes = {
+  saveUser: PropTypes.func.isRequired,
+};

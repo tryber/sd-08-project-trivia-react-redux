@@ -1,8 +1,8 @@
 // import { getGhibliMoviesAPI, getGhibliPeopleAPI, getGhibliSpeciesAPI } from '../services';
 export const SAVE_USER = 'SAVE_USER';
-// export const REQUEST_START = 'REQUEST_START';
-// export const REQUEST_FAIL = 'REQUEST_FAIL';
-// export const REQUEST_FILM_SUCCESS = 'REQUEST_FILM_SUCCESS';
+export const REQUEST_START = 'REQUEST_START';
+export const REQUEST_FAIL = 'REQUEST_FAIL';
+export const REQUEST_AVATAR_SUCCESS = 'REQUEST_AVATAR_SUCCESS';
 // export const REQUEST_PEOPLE_SUCCESS = 'REQUEST_PEOPLE_SUCCESS';
 // export const REQUEST_SPECIES_SUCCESS = 'REQUEST_SPECIES_SUCCESS';
 // export const FAVORITE_MOVIE = 'FAVORITE_MOVIE';
@@ -21,9 +21,9 @@ export const saveUserData = (user) => ({
 //   error,
 // });
 
-// const requestMoviesSuccess = (movies) => ({
-//   type: REQUEST_FILM_SUCCESS,
-//   movies,
+// const requestGravatarSuccess = (avatar) => ({
+//   type: REQUEST_AVATAR_SUCCESS,
+//   avatar,
 // });
 
 // const requestPeopleSuccess = (people) => ({
@@ -35,17 +35,6 @@ export const saveUserData = (user) => ({
 //   type: REQUEST_SPECIES_SUCCESS,
 //   species,
 // });
-
-// export const fetchMovies = () => async (dispatch) => {
-//   dispatch(requestStart());
-//   try {
-//     const movies = await getGhibliMoviesAPI();
-
-//     dispatch(requestMoviesSuccess(movies));
-//   } catch (error) {
-//     dispatch(requestFail(error));
-//   }
-// };
 
 // export const fetchPeople = () => async (dispatch) => {
 //   dispatch(requestStart());
