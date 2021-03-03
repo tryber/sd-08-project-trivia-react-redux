@@ -21,4 +21,9 @@ const mapStateToProps = (state) => ({
   name: state.name,
 });
 
+GameScreen.propTypes = {
+  email: PropTypes.string,
+  name: PropTypes.string,
+}.isRequired;
+
 export default connect(mapStateToProps)(GameScreen);
