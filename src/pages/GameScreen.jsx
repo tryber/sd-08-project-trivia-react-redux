@@ -20,6 +20,7 @@ const mapStateToProps = (state) => ({
   email: state.email,
   name: state.name,
 });
+// bla
 
 GameScreen.propTypes = {
   email: PropTypes.string,
