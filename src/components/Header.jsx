@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -12,13 +12,13 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { playerName, score, imagePatch } = this.state;
+    const { playerName, score, imagePatch } = this.state
     return (
       <header>
-        <img alt="TROCARDEPOIS" src={ imagePatch } />
+        <img src={imagePatch} />
         <div>{playerName}</div>
         <div>{score}</div>
       </header>
-    );
+    )
   }
 }
