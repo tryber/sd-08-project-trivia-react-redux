@@ -45,7 +45,7 @@
     "@testing-library/react": "^9.5.0",
     "cypress": "^6.6.0",
     "cypress-multi-reporters": "^1.4.0",
-    "eslint": "6.8.0",
+    "eslint": "7.11.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-react": "^7.21.5",
     "mocha": "^7.2.0",
