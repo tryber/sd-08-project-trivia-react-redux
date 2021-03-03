@@ -1,13 +1,12 @@
-import getToken from '../services/api';
+import fetchTriviaToken from '../services/api';
 
-export const LOGIN = 'LOGIN';
-export const INPUT_VALUE = 'INPUT_VALUE';
+export const SAVE_INPUT_VALUE = 'SAVE_INPUT_VALUE';
 export const REQUEST_TRIVIA_TOKEN = 'REQUEST_TRIVIA_TOKEN';
 export const REQUEST_TRIVIA_TOKEN_SUCCESS = 'REQUEST_TRIVIA_TOKEN_SUCCESS';
 export const REQUEST_TRIVIA_TOKEN_ERROR = 'REQUEST_TRIVIA_TOKEN_ERROR';
 
-export const saveInputs = (payload) => ({
-  type: INPUT_VALUE,
+export const saveInputValues = (payload) => ({
+  type: SAVE_INPUT_VALUE,
   payload,
 });
 
@@ -34,13 +33,12 @@ export const requestTriviaTokenError = (error) => ({
   },
 });
 
-export const fetchTriviaToken = () => async (dispatch) => {
+export const getTriviaToken = () => async (dispatch) => {
   dispatch(requestTriviaToken());
-
   try {
-    const tokenResponse = await getToken();
+    const tokenResponse = await fetchTriviaToken();
     localStorage.setItem('token', JSON.stringify(tokenResponse.token));
-    dispatch(requestTriviaTokenSuccess(tokenResponse));
+    dispatch(requestTriviaTokenSuccess(tokenResponse.token));
   } catch (error) {
     dispatch(requestTriviaTokenError(error));
   }

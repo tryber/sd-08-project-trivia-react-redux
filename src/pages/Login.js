@@ -1,26 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import {
-  saveInputs as saveInputsAction,
-  fetchTriviaToken as fetchTriviaTokenAction,
+  saveInputValues as saveInputValuesAction,
+  getTriviaToken as getTriviaTokenAction,
 } from '../actions';
 
 class Login extends React.Component {
   handleChange({ target: { id, value } }) {
-    const { saveInputs } = this.props;
-    saveInputs({ [id]: value });
+    const { saveInputValues } = this.props;
+    saveInputValues({ [id]: value });
   }
 
-  async handleClick(event) {
+  handleClick(event) {
     event.preventDefault();
-    const { fetchTriviaToken, history } = this.props;
-    fetchTriviaToken();
+    const { getTriviaToken, history } = this.props;
+    getTriviaToken();
     history.push('/game');
   }
 
   render() {
-    const { readInputs, history } = this.props;
+    const { readInputValues, history } = this.props;
     return (
       <>
         <form>
@@ -43,7 +44,7 @@ class Login extends React.Component {
             />
           </label>
           <button
-            disabled={ Object.keys(readInputs).length !== 2 }
+            disabled={ Object.keys(readInputValues).length !== 2 }
             data-testid="btn-play"
             onClick={ this.handleClick.bind(this) }
             type="submit"
@@ -64,19 +65,19 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  readInputs: state.loginReducer,
+  readInputValues: state.loginReducer,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  saveInputs: (payload) => (dispatch(saveInputsAction(payload))),
-  fetchTriviaToken: () => (dispatch(fetchTriviaTokenAction())),
+  saveInputValues: (payload) => (dispatch(saveInputValuesAction(payload))),
+  getTriviaToken: () => (dispatch(getTriviaTokenAction())),
 });
 
 Login.propTypes = {
-  readInputs: PropTypes.objectOf(PropTypes.any).isRequired,
-  saveInputs: PropTypes.func.isRequired,
-  fetchTriviaToken: PropTypes.func.isRequired,
-  history: PropTypes.func.isRequired,
+  readInputValues: PropTypes.objectOf(PropTypes.any).isRequired,
+  saveInputValues: PropTypes.func.isRequired,
+  getTriviaToken: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
