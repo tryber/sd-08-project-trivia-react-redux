@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import ConfigScreen from './pages/ConfigScreen';
 import ConfigButton from './components/ConfigButton';
-import { connect } from 'react-redux';
 import Home from './pages/Home';
 import './App.css';
 import GameScreen from './pages/GameScreen';
