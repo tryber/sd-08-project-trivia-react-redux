@@ -33,6 +33,13 @@ class Login extends React.Component {
     );
   }
 
+  handleClick() {
+    this.requestToken();
+    this.setState({
+      shouldRedirect: true,
+    });
+  }
+
   checkEmailAndName() {
     const minimumNameSize = 1;
     const { email, name } = this.state;
@@ -55,13 +62,6 @@ class Login extends React.Component {
       await fetch('https://opentdb.com/api_token.php?command=request')
         .then((response) => response.json())
         .then((data) => localStorage.setItem('token', data.token));
-    });
-  }
-
-  handleClick() {
-    this.requestToken();
-    this.setState({
-      shouldRedirect: true,
     });
   }
 
