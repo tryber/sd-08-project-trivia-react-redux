@@ -43,8 +43,8 @@ const mapStateToProps = (state) => ({
   questions: state.login.questions,
 });
 
-export default connect(mapStateToProps)(Game);
-
 Game.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
+
+export default connect(mapStateToProps)(Game);

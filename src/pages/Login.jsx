@@ -59,51 +59,54 @@ class Login extends React.Component {
         <header className="App-header">
           <img src={ logo } className="App-logo" alt="logo" />
           <p>NOSSA VEZ</p>
-        </header>
-        {shouldRedirect ? (
-          <Redirect to="/game" />
-        ) : (
-          <main>
-            <form>
-              <label htmlFor="name">
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Digite seu nick"
-                  data-testid="input-player-name"
-                  onChange={ this.handleChange }
-                />
-              </label>
-              <label htmlFor="email">
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Digite seu email"
-                  data-testid="input-gravatar-email"
-                  onChange={ this.handleChange }
-                />
-                <button
-                  type="button"
-                  data-testid="btn-play"
-                  disabled={ isDisabled }
-                  onClick={ this.handleClick }
-                >
-                  Jogar
-                </button>
-                <Link to="/settings">
+          {shouldRedirect ? (
+            <Redirect to="/game" />
+          ) : (
+            <main>
+              <form>
+                <label htmlFor="name">
+                  Name:
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Digite seu nick"
+                    data-testid="input-player-name"
+                    onChange={ this.handleChange }
+                  />
+                </label>
+                <br />
+                <label htmlFor="email">
+                  Email:
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Digite seu email"
+                    data-testid="input-gravatar-email"
+                    onChange={ this.handleChange }
+                  />
+                  <br />
                   <button
                     type="button"
-                    data-testid="btn-settings"
+                    data-testid="btn-play"
+                    disabled={ isDisabled }
+                    onClick={ this.handleClick }
                   >
-                    Configurações
+                    Jogar
                   </button>
-                </Link>
-              </label>
-            </form>
-          </main>
-        )}
+                  <br />
+                  <Link to="/settings">
+                    <button
+                      type="button"
+                      data-testid="btn-settings"
+                    >
+                      Configurações
+                    </button>
+                  </Link>
+                </label>
+              </form>
+            </main>
+          )}
+        </header>
       </div>
     );
   }
@@ -115,7 +118,7 @@ Login.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  requestLogin: (name, email, score) => dispatch(requestToken(name, email, score)),
+  requestLogin: (valeu) => dispatch(requestToken(valeu)),
 });
 
 const mapStateToProps = (state) => ({

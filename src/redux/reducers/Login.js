@@ -48,7 +48,7 @@ export default function loginReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case FIRST_LOGIN:
     return {
-      ...state,
+      // ...state, Não precisa dessa linha
       player: action.state,
       questions: action.questions.results,
       shouldRedirect: true,

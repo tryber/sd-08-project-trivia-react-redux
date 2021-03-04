@@ -61,5 +61,5 @@
 }
 
 .wrong-answer {
-  border: 3px solid rgb(255, 0, 0);
+  border: 3px solid red;
 }
