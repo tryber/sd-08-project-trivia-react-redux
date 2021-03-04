@@ -49,6 +49,8 @@ class Answers extends Component {
   }
 }
 
+// tetse
+
 Answers.propTypes = {
   correct: PropTypes.string.isRequired,
   incorrect: PropTypes.arrayOf(PropTypes.string).isRequired,
