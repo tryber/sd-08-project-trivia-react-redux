@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import BtnLogin from '../components/BtnLogin';
 import inputLogin from '../components/InputLogin';
 import getToken from '../services/apis/getToken';
+import { saveName, saveEmail } from '../redux/actions';
 
 class Login extends Component {
   constructor() {
@@ -13,7 +16,6 @@ class Login extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.goToPage = this.goToPage.bind(this);
   }
 
   handleChange({ target: { name, value } }) {
@@ -21,14 +23,11 @@ class Login extends Component {
   }
 
   async handleSubmit() {
-    const { history } = this.props;
+    const { saveNamePlayer, saveEmailPlayer } = this.props;
+    const { userName, email } = this.state;
     await getToken();
-    history.push('/game-page');
-  }
-
-  goToPage() {
-    const { history } = this.props;
-    history.push('./Config');
+    saveNamePlayer(userName);
+    saveEmailPlayer(email);
   }
 
   render() {
@@ -37,27 +36,41 @@ class Login extends Component {
       <>
         <h1>Trivia</h1>
         <form>
-          {inputLogin('email', 'Email do Gravatar:',
-            'email', 'input-player-name', this.handleChange) }
+          {inputLogin(
+            'email',
+            'Email do Gravatar:',
+            'email',
+            'input-player-name',
+            this.handleChange,
+          )}
 
-          {inputLogin('userName', 'Nome do Jogador:',
-            'userName', 'input-gravatar-email', this.handleChange) }
-          {BtnLogin(this.handleSubmit, email, userName)}
-          <button
-            type="button"
-            data-testid="btn-settings"
-            onClick={ this.goToPage }
-          >
-            Config
-          </button>
+          {inputLogin(
+            'userName',
+            'Nome do Jogador:',
+            'userName',
+            'input-gravatar-email',
+            this.handleChange,
+          )}
+          <Link to="/game-page">
+            {BtnLogin(this.handleSubmit, email, userName)}
+          </Link>
+          <Link to="/config">
+            <button type="button" data-testid="btn-settings">
+              Config
+            </button>
+          </Link>
         </form>
       </>
     );
   }
 }
-
-export default Login;
-
 Login.propTypes = {
-  history: PropTypes.objectOf.isRequired,
+  saveNamePlayer: propTypes.func.isRequired,
+  saveEmailPlayer: propTypes.func.isRequired,
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  saveNamePlayer: (name) => dispatch(saveName(name)),
+  saveEmailPlayer: (email) => dispatch(saveEmail(email)),
+});
+export default connect(null, mapDispatchToProps)(Login);
