@@ -1,4 +1,7 @@
+
 /* const baseAPI = 'https://opentdb.com';
+
+const baseAPI = 'https://opentdb.com';
 export const getToken = async () => {
   try{
     const endpoint = `${baseAPI}/api_token.php?command=request`;
@@ -33,3 +36,4 @@ export const getToken = async () => fetchApi(`${BASE_URL}/api_token.php?command=
 
 export const getQuestions = async (token, amount) => (
   fetchApi(`${BASE_URL}/api.php?amount=${amount}&token=${token}`));
+}
