@@ -4,6 +4,7 @@ import {
   FETCH_QUESTIONS,
 } from '../actions';
 
+// mecher a partir daqui
 export default function wallet(state = INITIAL_STATE, action) {
   // const { expenses, total } = state;
 
