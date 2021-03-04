@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+
 import { Link, Redirect } from 'react-router-dom';
 // import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 import { getToken } from '../services/questionsAPI';
+
 // import { actionUserEmail } from '../actions/walletActions';
 
 // import './Login.css';
 
+
 class Login extends Component {
+
   constructor() {
     super();
 
@@ -19,6 +23,7 @@ class Login extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.validate = this.validate.bind(this);
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -35,6 +40,7 @@ class Login extends Component {
   async handleClick() {
     const { token } = await getToken();
     localStorage.setItem('token', token);
+
   }
 
   validate() {
@@ -47,10 +53,12 @@ class Login extends Component {
     }
   }
 
+
   render() {
     const { name, email, isDisable } = this.state;
     const token = localStorage.getItem('token');
     if (token) return <Redirect to="/questions" />;
+
 
     return (
       <form className="form-login" onSubmit={ this.handleSubmit }>
@@ -78,10 +86,12 @@ class Login extends Component {
         <div>
           <Link to="/questions">
             <button
+
               type="button"
               disabled={ isDisable }
               data-testid="btn-play"
               onClick={ this.handleClick }
+
             >
               Jogar
             </button>
@@ -97,22 +107,10 @@ class Login extends Component {
             </button>
           </Link>
         </div>
+
       </form>
     );
   }
 }
 
-/* const mapStateToProps = (state) => ({
-  token: state.token,
-});
 
-const mapDispatchToProps = (dispatch) => ({
-   writeEmail: (email) => dispatch(actionUserEmail(email)),
-});
-
-Login.propTypes = {
-  // writeEmail: PropTypes.func.isRequired,
-  token: PropTypes.string.isRequired,
-}; */
-
-export default Login;

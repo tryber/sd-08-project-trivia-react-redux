@@ -1,3 +1,4 @@
+
 // import getAPI from '../services/requestAPI';
 
 import {
@@ -5,6 +6,7 @@ import {
   // FETCH_QUESTIONS,
   // FETCH_GRAVATA,
 } from './index';
+
 
 // não revisado daqui pra baixo
 export function actionUserEmail(email) {
