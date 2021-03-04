@@ -7,7 +7,7 @@ class BtnSet extends React.Component {
       <div>
         <Link to="/Set">
           <button data-testid="btn-settings" type="button">
-            Configurações:
+            Configurações
           </button>
         </Link>
       </div>
