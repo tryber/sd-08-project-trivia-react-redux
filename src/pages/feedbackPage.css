@@ -1,0 +1,9 @@
+.header-feedback {
+  background-color: brown;
+  display: flex;
+}
+
+.header-feedback img {
+  border-radius: 50px;
+  width: 60px;
+}
