@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import gravatarAPI from '../services/gravatarAPI';
 // import './Header.css';
+// coment
 
 export default class Header extends Component {
   render() {
