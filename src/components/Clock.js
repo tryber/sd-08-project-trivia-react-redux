@@ -54,6 +54,7 @@ class Clock extends Component {
 
 const mapStateToProps = (state) => ({
   timer: state.gameReducer.timer,
+});
 
 });
 const mapDispatchToProps = (dispatch) => ({
