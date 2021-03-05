@@ -99,7 +99,7 @@ export const requestTriviaQuestionsError = (error) => ({
   },
 });
 
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array ...
 function arrayShuffler(array) {
   return array.map((a) => ({ sort: Math.random(), value: a }))
     .sort((a, b) => a.sort - b.sort).map((a) => a.value);
