@@ -20,13 +20,6 @@ class Login extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillUnmount() {
-    const { addUser } = this.props;
-    const { email, name } = this.state;
-    const hash = md5(email).toString();
-    addUser({ email, name, hash });
-  }
-
   validateEmailAndName(email, name) {
     if (email.length < 1 || name.length < 1) {
       this.setState({
@@ -52,8 +45,10 @@ class Login extends React.Component {
     // const { token } = resJson;
     // localStorage.setItem('token', token);
     // console.log(token);
-
-    const { fetchQuestions, history } = this.props;
+    const { fetchQuestions, history, addUser } = this.props;
+    const { email, name } = this.state;
+    const hash = md5(email).toString();
+    addUser({ email, name, hash });
     await fetchQuestions();
     history.push('/play');
   }
