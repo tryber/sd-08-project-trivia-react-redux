@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Ranking extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class Ranking extends React.Component {
         {names.map((name, index) => (
           <p key={ index }>{name}</p>
         ))}
+        <Link to="/" data-testid="btn-go-home">Jogar novamente</Link>
       </section>
     );
   }

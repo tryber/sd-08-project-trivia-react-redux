@@ -1,6 +1,10 @@
-export const actionUser = (name, email) => ({ type: 'USER', payload: { name, email } });
+export const actionUser = (name, emailGravatar) => (
+  { type: 'USER', payload: { name, emailGravatar } }
+);
 export const actionToken = (token) => ({ type: 'TOKEN', payload: { token } });
-export const actionScore = (score) => ({ type: 'SCORE', payload: { score } });
+export const actionScore = (score, rightAnswers) => (
+  { type: 'SCORE', payload: { score, rightAnswers } }
+);
 
 export const saveQuizAction = () => ({});
 
@@ -18,4 +22,9 @@ export function fetchQuiz(token) {
         dispatch(getQuiz(results));
       });
   };
+}
+
+export async function getGravatar(hash) {
+  const response = await fetch(`https://www.gravatar.com/avatar/${hash}`);
+  return response.url;
 }

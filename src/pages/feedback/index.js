@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from '../../components/Header';
 
-export default class index extends Component {
+class index extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       totalQuestions: 5,
-      rightAnswers: 3,
-      score: 3,
     };
   }
 
   render() {
-    const { rightAnswers, totalQuestions, score } = this.state;
+    const { totalQuestions } = this.state;
+    const { rightAnswers, score } = this.props;
     return (
       <section>
         <Header />
@@ -22,14 +23,30 @@ export default class index extends Component {
           { rightAnswers >= (totalQuestions / 2) ? 'Mandou bem!' : 'Podia ser melhor...' }
         </h1>
         <p data-testid="feedback-total-question">
-          { `Você acertou ${totalQuestions} questões!` }
+          { `Você acertou ${rightAnswers} questões!` }
         </p>
         <p data-testid="feedback-total-score">
           { `Um total de ${score} pontos` }
         </p>
-        <Link to="/ranking" data-testid="btn-ranking">Ver Ranking</Link>
-        <Link to="/" data-testid="btn-play-again">Jogar novamente</Link>
+        <Link to="/ranking" className="feedback-btn" data-testid="btn-ranking">
+          Ver Ranking
+        </Link>
+        <Link to="/" className="feedback-btn" data-testid="btn-play-again">
+          Jogar novamente
+        </Link>
       </section>
     );
   }
 }
+
+index.propTypes = {
+  score: PropTypes.number.isRequired,
+  rightAnswers: PropTypes.number.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  score: state.score.score,
+  rightAnswers: state.score.rightAnswers,
+});
+
+export default connect(mapStateToProps)(index);

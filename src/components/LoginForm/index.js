@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import md5 from 'crypto-js/md5';
 import { getToken } from '../../services/api';
-import { actionUser, actionToken } from '../../redux/actions';
+import { actionUser, actionToken, getGravatar } from '../../redux/actions';
 
 import './styles.css';
 
@@ -30,7 +31,9 @@ class Login extends Component {
     event.preventDefault();
     const { name, email } = this.state;
     const { saveNameEmail, saveToken } = this.props;
-    saveNameEmail(name, email);
+    const hash = md5(email).toString();
+    const emailGravatar = await getGravatar(hash);
+    saveNameEmail(name, emailGravatar);
     const token = await getToken();
     saveToken(token);
     localStorage.setItem('token', token);
@@ -90,7 +93,7 @@ Login.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  saveNameEmail: (name, email) => dispatch(actionUser(name, email)),
+  saveNameEmail: (name, emailGravatar) => dispatch(actionUser(name, emailGravatar)),
   saveToken: (token) => dispatch(actionToken(token)),
 
 });
