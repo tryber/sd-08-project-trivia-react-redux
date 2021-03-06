@@ -23,17 +23,39 @@ class Trivia extends React.Component {
       disabled: false,
       number: 0,
       nextQuestion: false,
+      remainingSeconds: 30,
     };
     this.renderQuestions = this.renderQuestions.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
+    // this.handleTimer = this.handleTimer.bind(this);
   }
 
   async componentDidMount() {
     const { fetchTriviaAPI } = this.props;
     const token = localStorage.getItem('token');
+    const second = 1000;
     await fetchTriviaAPI(token);
     await this.loadingData();
+    this.timer = setInterval(() => {
+      const { remainingSeconds } = this.state;
+
+      if (remainingSeconds > 0) {
+        this.setState((state) => ({
+          remainingSeconds: state.remainingSeconds - 1,
+        }));
+      }
+      if (remainingSeconds === 0) {
+        clearInterval(this.timer);
+        this.setState({
+          btnTrue: 'button-true',
+          btnFalse: 'button-false',
+          disabled: true,
+          nextQuestion: true,
+        });
+      }
+    }, second);
+    // this.handleTimer();
   }
 
   handleClick() {
@@ -43,6 +65,7 @@ class Trivia extends React.Component {
       disabled: true,
       nextQuestion: true,
     });
+    clearInterval(this.timer);
   }
 
   handleNextQuestion() {
@@ -50,7 +73,10 @@ class Trivia extends React.Component {
     this.setState({
       ...INITIAL_STATE,
       number: number + 1,
+      remainingSeconds: 30,
     });
+    const second = 1000;
+    this.timer = setInterval(this.timer, second);
   }
 
   async loadingData() {
@@ -76,7 +102,15 @@ class Trivia extends React.Component {
   }
 
   renderQuestions() {
-    const { question, btnTrue, btnFalse, disabled, number, nextQuestion } = this.state;
+    const {
+      question,
+      btnTrue,
+      btnFalse,
+      disabled,
+      number,
+      nextQuestion,
+      remainingSeconds,
+    } = this.state;
     const FIVE_QUESTIONS = 4;
     if (number <= FIVE_QUESTIONS) {
       return (
@@ -113,12 +147,12 @@ class Trivia extends React.Component {
                 {answer}
               </button>
             ))}
-            {nextQuestion ? this.renderButtonNext() : <div />}
+            {nextQuestion && this.renderButtonNext()}
           </div>
+          <p>{ remainingSeconds }</p>
         </>
       );
     }
-    return <div />;
   }
 
   render() {
