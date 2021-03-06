@@ -12,6 +12,8 @@ class Play extends React.Component {
     this.createMultipleQuestions = this.createMultipleQuestions.bind(this);
     this.ramdomizeAnswers = this.ramdomizeAnswers.bind(this);
     this.renderType = this.renderType.bind(this);
+    this.createNextButton = this.createNextButton.bind(this);
+    this.handleClickAnswers = this.handleClickAnswers.bind(this);
   }
 
   ramdomizeAnswers() {
@@ -24,6 +26,23 @@ class Play extends React.Component {
       }
     }
     return positions;
+  }
+
+  createNextButton(allAnswers = undefined) {
+    console.log('caralha');
+    const { isClicked } = this.state;
+    if (allAnswers && isClicked) {
+      return (
+        <div>
+          <button type="button" data-testid="btn-next">Próxima</button>
+        </div>
+      );
+    }
+  }
+
+  handleClickAnswers() {
+    // Aquificarão todas as funções dos botões de resposta
+    this.setState({ isClicked: true });
   }
 
   createMultipleQuestions() {
@@ -48,27 +67,34 @@ class Play extends React.Component {
         <button
           type="button"
           data-testid={ allAnswers && allAnswers[positions[0]].status }
+          onClick={ this.handleClickAnswers }
         >
           {allAnswers[positions[0]].content}
         </button>
         <button
           type="button"
           data-testid={ allAnswers && allAnswers[positions[1]].status }
+          onClick={ this.handleClickAnswers }
         >
           {allAnswers[positions[1]].content}
         </button>
         <button
           type="button"
           data-testid={ allAnswers && allAnswers[positions[2]].status }
+          onClick={ this.handleClickAnswers }
         >
           {allAnswers[positions[2]].content}
         </button>
         <button
           type="button"
           data-testid={ allAnswers && allAnswers[positions[3]].status }
+          onClick={ this.handleClickAnswers }
         >
           {allAnswers[positions[3]].content}
         </button>
+        <div>
+          {this.createNextButton(allAnswers)}
+        </div>
       </div>
     );
   }
@@ -82,8 +108,23 @@ class Play extends React.Component {
     }
     return (
       <div>
-        <button type="button" data-testid="correct-answer">Verdadeiro</button>
-        <button type="button" data-testid="wrong-answer-0">Falso</button>
+        <button
+          type="button"
+          data-testid="correct-answer"
+          onClick={ this.handleClickAnswers }
+        >
+          Verdadeiro
+        </button>
+        <button
+          type="button"
+          data-testid="wrong-answer-0"
+          onClick={ this.handleClickAnswers }
+        >
+          Falso
+        </button>
+        <div>
+          {this.createNextButton()}
+        </div>
       </div>
     );
   }
