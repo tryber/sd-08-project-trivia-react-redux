@@ -2,20 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import logo from '../trivia.png';
-import '../App.css';
+import './trivia.css';
 
 import fetchAPI from '../redux/actions';
 
 class Trivia extends Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = {
+      name: '',
+      email: '',
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
-    const { requestApi } = this.props;
-    requestApi();
+  settingsButton() {
+    window.location.href = '/config';
   }
 
   handleChange(event) {
@@ -24,57 +26,77 @@ class Trivia extends Component {
     });
   }
 
-  handleClick() {
+  async handleClick(api) {
+    await api();
     const { login } = this.props;
     if (login === true) {
       window.location.href = '/jogo';
     }
 
-    return '';
+    return 'erro';
+  }
+
+  disabled() {
+    const { name, email } = this.state;
+    if (name === '' || email === '') {
+      return true;
+    }
+
+    return false;
   }
 
   render() {
+    const { requestApi } = this.props;
     return (
-      <div className="App">
-        <header className="App-header">
+      <>
+        <header className="app-header">
           <img src={ logo } className="App-logo" alt="logo" />
+        </header>
+        <form id="form-one" className="form-login">
           <p>
             VOCÊ ESTÁ PREPARADO ?
           </p>
-          <form id="form-one">
-            <label htmlFor="input-text" className="field1">
-              Email:
-              <input
-                type="text"
-                name="email"
-                className="input-field"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <label htmlFor="input-password" className="field2">
-              Password:
-              <input
-                type="password"
-                name="password"
-                className="input-field"
-                onChange={ this.handleChange }
-              />
-            </label>
-            <button
-              type="button"
-              className="btn"
-              onClick={ () => this.handleClick() }
-            >
-              Começar
-            </button>
-          </form>
-          <form className="form-two">
-            <input type="submit" value="Configurações" className="btn-field" />
-            <input type="submit" value="Comentários" className="btn-field" />
-            <input type="submit" value="Rank" className="btn-field" />
-          </form>
-        </header>
-      </div>
+          <label htmlFor="input-text" className="input-name">
+            <input
+              type="text"
+              name="name"
+              className="input-field"
+              placeholder="Name"
+              onChange={ this.handleChange }
+              data-testid="input-player-name"
+            />
+          </label>
+          <label htmlFor="input-email" className="input-email">
+            <input
+              type="text"
+              name="email"
+              className="input-field"
+              placeholder="Email"
+              onChange={ this.handleChange }
+              data-testid="input-gravatar-email"
+            />
+          </label>
+          <button
+            type="button"
+            className="btn"
+            onClick={ () => this.handleClick(requestApi) }
+            data-testid="btn-play"
+            disabled={ this.disabled() }
+          >
+            Jogar
+          </button>
+          <button
+            type="button"
+            className="btn-field"
+            data-testid="btn-settings"
+            onClick={ () => this.settingsButton() }
+          >
+            Configurações
+          </button>
+          <button type="button" className="btn-field">Comentários</button>
+          <button type="button" className="btn-field">Rank</button>
+        </form>
+      </>
     );
   }
 }

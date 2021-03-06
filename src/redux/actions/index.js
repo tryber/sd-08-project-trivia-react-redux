@@ -1,8 +1,5 @@
-const requestApiSuccess = (api) => ({
+const requestApiSuccess = () => ({
   type: 'API_SUCCESS',
-  payload: {
-    api,
-  },
 });
 
 const requestApiFail = (error) => ({
@@ -16,7 +13,8 @@ const fetchAPI = () => async (dispatch) => {
   try {
     const tokenRequest = await fetch('https://opentdb.com/api_token.php?command=request');
     const tokenReturn = await tokenRequest.json();
-    dispatch(requestApiSuccess(tokenReturn));
+    localStorage.setItem('token', tokenReturn.token);
+    dispatch(requestApiSuccess());
   } catch (error) {
     dispatch(requestApiFail(error));
   }

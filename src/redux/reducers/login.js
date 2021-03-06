@@ -9,7 +9,6 @@ const login = (state = INITIAL_STATE, action) => {
   case 'API_SUCCESS':
     return {
       ...state,
-      api: action.payload,
       login: true,
     };
   case 'API_FAIL':

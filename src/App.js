@@ -18,9 +18,9 @@ class App extends Component {
           <Switch>
             <Route component={ Trivia } exact path="/" />
             <Route component={ Jogo } exact path="/jogo" />
-            <Route component={ Rank } exact path="/Rank" />
-            <Route component={ Comentarios } exact path="/Comentarios" />
-            <Route component={ Config } exact path="/Config" />
+            <Route component={ Rank } exact path="/rank" />
+            <Route component={ Comentarios } exact path="/comentarios" />
+            <Route component={ Config } exact path="/config" />
           </Switch>
         </Provider>
       </BrowserRouter>
