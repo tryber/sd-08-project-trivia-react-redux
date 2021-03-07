@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 import {
   Switch,
   Route,
@@ -12,14 +11,14 @@ import Feedback from './pages/Feedback';
 import Ranking from './pages/Ranking';
 import Game from './pages/Game';
 
-export default function App() {
-  // const isAuth = useSelector(state => state.app.isAuth);
+import './App.css';
 
+export default function App() {
   return (
     <Switch>
       <Route exact path="/" component={ Login } />
-      <Route exact path="/settings" component={ Settings } />
       <Route exact path="/game" component={ Game } />
+      <Route exact path="/settings" component={ Settings } />
       <Route exact path="/feedback" component={ Feedback } />
       <Route exact path="/ranking" component={ Ranking } />
       <Redirect from="*" to="/" />

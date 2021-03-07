@@ -1,0 +1,8 @@
+#!/bin/sh
+
+clear
+
+git pull -f
+git add .
+git commit -m 'update'
+git push -u origin main-group-20-vivi

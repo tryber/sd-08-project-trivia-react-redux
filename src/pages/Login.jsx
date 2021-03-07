@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
+import * as player from '../core/player';
+import * as ranking from '../core/ranking';
+=======
 import { requestToken } from '../services';
+>>>>>>> origin/main-group-20
 
 class Login extends React.Component {
   constructor(props) {
@@ -16,10 +21,13 @@ class Login extends React.Component {
     this.handleSettingsChange = this.handleSettingsChange.bind(this);
   }
 
+<<<<<<< HEAD
+=======
   componentDidMount() {
     // const token = await requestToken();
   }
 
+>>>>>>> origin/main-group-20
   handleSettingsChange() {
     const { history } = this.props;
     history.push('/settings');
@@ -34,12 +42,17 @@ class Login extends React.Component {
   async handleClick() {
     const { history } = this.props;
     const { name, email } = this.state;
+<<<<<<< HEAD
+    ranking.loadRanking();
+    await player.login({ name, email });
+=======
     const tokenCode = await requestToken();
     localStorage.setItem('token', tokenCode);
     console.log(tokenCode);
     localStorage.setItem('state', JSON.stringify(
       { player: { name, assertions: 0, score: 0, gravatarEmail: email } },
     ));
+>>>>>>> origin/main-group-20
     history.push('/game');
   }
 
