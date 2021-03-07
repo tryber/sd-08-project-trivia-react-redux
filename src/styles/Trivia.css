@@ -12,9 +12,8 @@
 }
 
 .correct-answer {
-  background-color: greenyellow;
-  border: 3px solid rgb(53, 241, 59);
-  color: rgb(11, 88, 11);
+  border: 3px solid rgb(6, 240, 15);
+  color: rgb(7, 71, 7);
   width: 40vw;
 }
 
