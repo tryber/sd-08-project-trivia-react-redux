@@ -8,6 +8,7 @@ class HeaderFeedback extends Component {
   constructor(props) {
     super(props);
     this.getNameStorage = this.getNameStorage.bind(this);
+    this.getScore = this.getScore.bind(this);
   }
 
   getNameStorage() {
@@ -15,6 +16,13 @@ class HeaderFeedback extends Component {
     const playerInfo = JSON.parse(stringPlayerInfo);
     const { player: { name } } = playerInfo;
     return name;
+  }
+
+  getScore() {
+    const stringPlayerInfo = localStorage.getItem('state');
+    const playerInfo = JSON.parse(stringPlayerInfo);
+    const { player: { score } } = playerInfo;
+    return score;
   }
 
   render() {
@@ -28,7 +36,7 @@ class HeaderFeedback extends Component {
           data-testid="header-profile-picture"
         />
         <p data-testid="header-player-name">{this.getNameStorage()}</p>
-        <p data-testid="header-score">0</p>
+        <p data-testid="header-score">{this.getScore()}</p>
       </header>
     );
   }

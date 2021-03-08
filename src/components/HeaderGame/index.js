@@ -5,6 +5,18 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 class HeaderGame extends Component {
+  constructor() {
+    super();
+    this.getScore = this.getScore.bind(this);
+  }
+
+  getScore() {
+    const stringPlayerInfo = localStorage.getItem('state');
+    const playerInfo = JSON.parse(stringPlayerInfo);
+    const { player: { score } } = playerInfo;
+    return score;
+  }
+
   render() {
     const { playerName, playerEmail } = this.props;
     const hashGerada = md5(playerEmail);
@@ -16,7 +28,7 @@ class HeaderGame extends Component {
           data-testid="header-profile-picture"
         />
         <p data-testid="header-player-name">{playerName}</p>
-        <p data-testid="header-score">0</p>
+        <p data-testid="header-score">{this.getScore()}</p>
       </header>
     );
   }
