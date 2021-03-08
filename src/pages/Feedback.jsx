@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 class Feedback extends Component {
   render() {
-    const certo = 3;
-    // const { acertos, score } = this.props;
-    // console.log(`acertos${acertos}`);
     const mensagem = '';
-    // acertos >= certo ? 'Mandou bem!' : 'Podia ser melhor...';
 
     return (
       <>
@@ -33,7 +29,7 @@ class Feedback extends Component {
           <p data-testid="feedback-text">Podia ser melhor ....</p>
 
           <Link to="/ranking">
-            <button data-testid="btn-ranking"> Ver o Ranking </button>
+            <button type="button" data-testid="btn-ranking"> Ver o Ranking </button>
           </Link>
 
         </main>
@@ -53,7 +49,7 @@ Feedback.propTypes = {
   // score: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = () => ({
   // acertos: state.user.player.assertions,
   // score: state.user.player.score,
 });

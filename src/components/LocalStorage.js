@@ -30,7 +30,7 @@ const mapStateToProps = (state) => ({
   jogoState: state,
   email: state.login.email,
   namee: state.login.name,
-  
+
 });
 
 LocalStorage.propTypes = {
