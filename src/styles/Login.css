@@ -1,0 +1,132 @@
+:root {
+
+  --roboto: 'roboto';
+
+  --poiret: 'Poiret One';
+
+  --orange: #ffbe00;
+
+  --rock: 'Rock Salt';
+
+  --special: 'Special Elite';
+}
+
+.container {
+  align-items: center;
+  background-color: var(--orange);
+  display: flex;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+ul {
+  list-style: none;
+}
+
+.p {
+  border-right: 2px solid rgb(55, 52, 52);
+  color: rgb(48, 46, 46);
+  font-family: var(--special);
+  font-size: 1.2em;
+  margin: 2px;
+  overflow: hidden;
+  padding: 2px;
+  white-space: no-wrap;
+}
+
+p {
+  margin: 10px;
+}
+
+.typing-animation {
+  animation: cursor 500ms infinite normal;
+}
+
+@keyframes cursor {
+
+  from {
+    border-right-color: 2px solid rgba(255, 255, 255);
+  }
+
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.box-login {
+  align-items: center;
+  background-color: white;
+  border: 2px solid rgb(222, 228, 230);
+  border-radius: 8px;
+  box-shadow: 0 2px 25px 2px rgb(214, 217, 218);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-evenly;
+  padding: 20px;
+  transition: 350ms;
+  width: 250px;
+  z-index: 10;
+}
+
+.logo {
+  align-self: flex-end;
+  width: 25%;
+}
+
+.box-login:hover {
+  border: 2px solid rgb(243, 199, 148);
+  border-radius: 5px;
+  box-shadow: none;
+  padding: 25px;
+}
+
+img {
+  width: 150px;
+}
+
+* {
+  border: none;
+  color: rgb(95, 88, 74);
+  font-family: var(--roboto);
+  outline: none;
+}
+
+button {
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  margin: 5px;
+  padding: 5px;
+  transition: 200ms;
+  width: 110px;
+}
+
+button:hover {
+  background-color: var(--orange);
+  box-shadow: 0 2px 25px 2px rgb(214, 217, 218);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+input {
+  background-color: rgb(248, 229, 217);
+  border: 2px solid rgb(250, 237, 210);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px 10px;
+  transition: 200ms;
+  width: 80%;
+}
+
+input:hover {
+  border: 2px solid var(--orange);
+}
+
+input:focus {
+  width: 90%;
+}
+
+.row {
+  display: flex;
+}
