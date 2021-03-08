@@ -7,7 +7,7 @@ import {
   REQUEST_TRIVIA_QUESTIONS_SUCCESS,
   REQUEST_TRIVIA_QUESTIONS_ERROR,
 } from '../actions';
-//alterando
+// alterando
 const INITIAL_STATE = {
   isFetching: true,
   timer: 30,

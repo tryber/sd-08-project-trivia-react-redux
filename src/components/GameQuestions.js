@@ -19,6 +19,7 @@ class GameQuestions extends React.Component {
       redirect: false,
     };
   }
+  // test
 
   componentDidMount() {
     const { fetchTriviaQuestions } = this.props;
