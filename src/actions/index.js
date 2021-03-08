@@ -5,6 +5,8 @@ export const QUESTIONS = 'QUESTIONS';
 export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
 export const REQUEST_QUESTIONS_ERROR = 'REQUEST_QUESTIONS_ERROR';
 export const NEXT_QUESTION = 'NEXT_QUESTION';
+export const COUNTDOWN = 'COUNTDOWN';
+export const CLEAR_COUNT = 'CLEAR_COUNT';
 
 export const playerLogin = (name, assertions, score, gravatarEmail) => ({
   type: PLAYER,
@@ -33,11 +35,20 @@ export const requestQuestionsError = (error) => ({
   payload: { error, isFetching: false },
 });
 
+export const timerCount = (ops) => ({
+  type: COUNTDOWN,
+  decrement: ops,
+});
+
+export const stopCount = (bool) => ({
+  type: CLEAR_COUNT,
+  clearcount: bool,
+});
+
 export const fetGetQuestions = (NUMBER_OF_QUESTIONS, userToken) => async (dispatch) => {
   dispatch(requestQuestions());
   try {
     const getQuestionsResponse = await getquestions(NUMBER_OF_QUESTIONS, userToken);
-    // console.log(getQuestionsResponse);
     dispatch(
       questionsTrivia(getQuestionsResponse),
 

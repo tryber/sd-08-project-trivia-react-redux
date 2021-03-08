@@ -39,9 +39,14 @@ class Login extends React.Component {
 
   redirectToGameScreen() {
     const { name, email } = this.state;
-    localStorage.setItem('gravatarEmail', email);
-    localStorage.setItem('name', name);
-    localStorage.setItem('score', 0);
+    const player = { player: {
+      name,
+      assertions: 0,
+      score: 0,
+      gravatarEmail: email,
+    },
+    };
+    localStorage.setItem('state', JSON.stringify(player));
     this.setState({
       shouldRedirect: true,
     });
