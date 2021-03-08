@@ -1,4 +1,5 @@
 *, *:after, *:before {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -19,6 +20,7 @@ main {
   justify-content: center;
 }
 
+//
 .logo {
   width: 100%;
 }
@@ -34,14 +36,16 @@ label {
   display: flex;
   justify-content: space-around;
   padding: 2px;
+
+  input {
+    margin-left: 2px;
+  }
 }
 
-label input {
-  margin-left: 2px;
-}
-
+// ------------------------------------------------
 .login {
   align-self: center;
+  //border: 1px solid rgb(182, 182, 182);
   border-radius: 3%;
   display: flex;
   flex-direction: column;
@@ -50,37 +54,37 @@ label input {
   max-width: 300px;
   padding: 1%;
   width: 100%;
-}
 
-.login .logo {
-  margin-bottom: 2%;
-  width: 100%;
-}
+  .logo {
+    margin-bottom: 2%;
+    width: 100%;
+  }
 
-.login label {
-  font-size: 1em;
-  margin-bottom: 1%;
-  margin-top: 1%;
-}
+  label {
+    font-size: 1em;
+    margin-bottom: 1%;
+    margin-top: 1%;
 
-.login label input {
-  font-size: 1em;
-  padding: 1%;
-  width: 80%;
-}
+    input {
+      font-size: 1em;
+      padding: 1%;
+      width: 80%;
+    }
+  }
 
-.login .control-group {
-  display: flex;
-  margin-top: 2%;
-  width: 100%;
-}
+  .control-group {
+    display: flex;
+    margin-top: 2%;
+    width: 100%;
 
-.login .control-group button {
-  align-self: center;
-  margin: 1%;
-  margin-bottom: 1%;
-  margin-top: 1%;
-  width: 100%;
+    button {
+      align-self: center;
+      margin: 1%;
+      margin-bottom: 1%;
+      margin-top: 1%;
+      width: 100%;
+    }
+  }
 }
 
 .main-logo {
@@ -88,8 +92,10 @@ label input {
   max-width: 120px;
 }
 
+// ------------------------------------------------
 header {
   align-items: center;
+  //border: 1px solid black;
   display: flex;
   font-size: 1em;
   height: 60px;
@@ -98,23 +104,23 @@ header {
   margin-right: auto;
   max-width: 800px;
   width: 100%;
-}
 
-header .header-player {
-  display: flex;
-  height: 80%;
-}
+  .header-player {
+    display: flex;
+    height: 80%;
 
-header .header-player .header-player-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4px;
-}
+    .header-player-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4px;
+    }
+  }
 
-header .header-score {
-  font-size: 1.2em;
-  margin-right: 4px;
+  .header-score {
+    font-size: 1.2em;
+    margin-right: 4px;
+  }
 }
 
 .header-player-avatar {
@@ -131,7 +137,7 @@ header .header-score {
 
 .header-player-email {
   align-self: center;
-  color: #3f3f3f;
+  color: rgb(63, 63, 63);
   font-size: 0.6em;
   padding: 2px;
 }
@@ -151,6 +157,7 @@ header .header-score {
 
 .game-match {
   align-items: center;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,6 +171,7 @@ header .header-score {
 
 .game-match-time {
   align-items: center;
+  // border: 1px solid black;
   display: flex;
   font-size: 2vmax;
   justify-content: space-between;
@@ -188,8 +196,10 @@ header .header-score {
   margin-top: 10px;
 }
 
+// ------------------------------------------------
 .game-round {
-  border: 1px solid #b6b6b6;
+  // background-color: #eee;
+  border: 1px solid rgb(182, 182, 182);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -201,7 +211,8 @@ header .header-score {
 }
 
 .game-round-category {
-  color: #0d530d;
+  // border: 1px solid black;
+  color: rgb(13, 83, 13);
   display: flex;
   font-size: 1.1vmax;
   font-weight: 400;
@@ -209,12 +220,13 @@ header .header-score {
 }
 
 .game-round-category-type {
-  color: #0a690a;
+  color: rgb(10, 105, 10);
   margin-left: 4px;
 }
 
 .game-feedback {
   align-items: center;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -244,10 +256,10 @@ header .header-score {
   display: flex;
   justify-content: center;
   padding: 2px;
-}
 
-.game-feedback-score-item span {
-  padding: 2px;
+  span {
+    padding: 2px;
+  }
 }
 
 .game-footer-feedback {
@@ -260,8 +272,10 @@ header .header-score {
   padding: 4px;
 }
 
+
 .game-answer-list {
   align-content: center;
+  // border: 1px solid black;
   display: flex;
   font-size: 1vmax;
   justify-content: space-around;
@@ -272,6 +286,7 @@ header .header-score {
 }
 
 .game-answer {
+  //background-color: white;
   background-color: #ffd622;
   border: 3px solid #ffd622;
   border-radius: 2px;
@@ -281,16 +296,15 @@ header .header-score {
   padding: 8px 30px;
   text-align: center;
   text-decoration: none;
-}
 
-.game-answer:hover {
-  border: 3px solid rgba(0, 0, 0, 0.041);
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24) , 0 4px 6px 0 rgba(0, 0, 0, 0.19);
-  cursor: pointer;
-}
 
-.game-answer:focus {
-  outline: 0;
+  &:hover {
+    border: 3px solid rgba(0, 0, 0, 0.041);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24) , 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+  }
+
+  &:focus { outline: 0;}
 }
 
 .game-answer-done {
@@ -301,20 +315,20 @@ header .header-score {
   padding: 8px 30px;
   text-align: center;
   text-decoration: none;
-}
 
-.game-answer-done:hover {
-  cursor: default;
-}
 
-.game-answer-done:focus {
-  outline: 0;
+  &:hover {
+    cursor: default;
+  }
+
+  &:focus { outline: 0;}
 }
 
 .game-answer-unselected {
   color: black;
   opacity: 0.4;
 }
+
 
 .button-base {
   font-size: 1vmax;
@@ -323,26 +337,17 @@ header .header-score {
   padding: 8px 30px;
   text-align: center;
   text-decoration: none;
-}
 
-.button-base:hover {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24) , 0 4px 6px 0 rgba(0, 0, 0, 0.19);
-  cursor: pointer;
-}
+  &:hover {
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24) , 0 4px 6px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+  }
 
-.button-base:focus {
-  outline: 0;
+  &:focus { outline: 0;}
 }
 
 .blinkme {
   animation: blinker 1s linear infinite;
-}
-
-@keyframes blinker {
-
-  50% {
-    opacity: 0.5;
-  }
 }
 
 @keyframes blinker {
@@ -358,6 +363,7 @@ header .header-score {
 
 .game-ranking {
   align-items: center;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -368,6 +374,7 @@ header .header-score {
   padding: 4px;
   width: 100%;
 }
+
 
 .game-ranking-list {
   align-items: center;
