@@ -1,0 +1,12 @@
+.green {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.red {
+  border: 3px solid red;
+}
+
+.rank-list {
+  display: flex;
+  flex-flow: row wrap;
+}
