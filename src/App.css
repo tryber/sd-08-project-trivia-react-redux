@@ -37,6 +37,10 @@
   color: #61dafb;
 }
 
+.login {
+  background-image: url('./images/images.jpeg');
+}
+
 @keyframes shake {
 
   10%, 90% {
