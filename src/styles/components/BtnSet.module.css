@@ -1,0 +1,28 @@
+.buttonSetContainer {
+  height: 10%;
+  margin: 4px;
+  width: 10%;
+}
+
+.buttonSetButton {
+  background-color: #1d1f1e;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 1px rgb(58, 58, 58);
+  color: bisque;
+  font-size: large;
+  font-weight: 800;
+  height: 60%;
+  letter-spacing: 2px;
+  margin-top: 10%;
+  width: 100%;
+}
+
+.buttonSetButton:focus {
+  outline: none;
+}
+
+.buttonSetButton:hover {
+  cursor: pointer;
+  filter: contrast(2);
+}

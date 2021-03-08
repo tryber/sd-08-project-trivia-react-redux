@@ -1,0 +1,27 @@
+.jogo {
+  align-items: center;
+  background-color: #9e150b;
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  justify-content: center;
+  width: 100%;
+}
+
+.jogo p, .jogo span {
+  box-shadow: 0 0 4px 2px;
+  font-size: 20px;
+  margin: 5px;
+  padding: 4px;
+  width: 30%;
+}
+
+.jogo button {
+  border-radius: 4px;
+  box-shadow: 0 0 10px 2px;
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 40px;
+  margin: 10px;
+  width: 30%;
+}

@@ -1,0 +1,7 @@
+.buttonRightAnswer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.buttonWrongAnswer {
+  border: 3px solid red;
+}
