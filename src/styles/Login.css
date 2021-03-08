@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(20, 20, 20);
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+.login-body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.login {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: black 0 0 10px 1px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.login input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 25px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+  width: 250px;
+}
+
+.login button {
+  background: rgb(50, 122, 83);
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 200;
+  margin: 10px 0 5px;
+  overflow: hidden;
+  padding: 5px;
+  position: relative;
+  text-shadow: black 2px 2px 2px;
+  z-index: 1;
+}
+
+.login .button-jogar {
+  background: rgb(248, 98, 29);
+}
+
+.login .button-jogar:hover {
+  color: white;
+}
+
+.login .button-jogar:before {
+  background: rgb(50, 122, 83);
+  border-radius: 0 0 50% 50%;
+  content: '';
+  height: 0%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: ease-out 0.5s;
+  width: 100%;
+  z-index: -1;
+}
+
+.login .button-jogar:hover:before {
+  height: 200%;
+}
+
+.login .button-jogar:disabled {
+  background: red;
+}
+
+.login .button-jogar:disabled:hover:before {
+  height: 0%;
+}

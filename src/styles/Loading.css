@@ -1,0 +1,101 @@
+.loading-body {
+  align-items: center;
+  background: rgb(20, 20, 20);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.square-container {
+  animation: rotate 6s linear infinite;
+  display: flex;
+  flex-wrap: wrap;
+  height: 30vh;
+  transform: rotate(45deg);
+  width: 30vh;
+}
+
+.square:nth-child( 1 ) {
+  animation: up 1.5s linear infinite;
+  background-color: rgb(212, 18, 18);
+  height: 50%;
+  width: 50%;
+}
+
+.square:nth-child( 2 ) {
+  animation: right 1.5s linear infinite;
+  background-color: #0d00bd;
+  height: 50%;
+  width: 50%;
+
+}
+
+.square:nth-child( 3 ) {
+  animation: left 1.5s linear infinite;
+  background-color: rgb(0, 141, 0);
+  height: 50%;
+  width: 50%;
+}
+
+.square:nth-child( 4 ) {
+  animation: down 1.5s linear infinite;
+  background-color: rgb(217, 255, 0);
+  height: 50%;
+  width: 50%;
+}
+
+@keyframes left {
+
+  33% { transform: translateY(10vh) translateX(-10vh) rotate(90deg); }
+
+  66% { transform: translateY(0) rotate(90deg); }
+
+  100% { transform: translateY(0) rotate(90deg); }
+}
+
+@keyframes up {
+
+  33% { transform: translateY(-10vh) translateX(-10vh) rotate(90deg); }
+
+  66% { transform: translateY(0) rotate(90deg); }
+
+  100% { transform: translateY(0) rotate(90deg); }
+}
+
+@keyframes down {
+
+  33% { transform: translateY(10vh) translateX(10vh) rotate(90deg); }
+
+  66% { transform: translateY(0) rotate(90deg); }
+
+  100% { transform: translateY(0) rotate(90deg); }
+}
+
+@keyframes right {
+
+  33% { transform: translateY(-10vh) translateX(10vh) rotate(90deg); }
+
+  66% { transform: translateY(0) rotate(90deg); }
+
+  100% { transform: translateY(0) rotate(90deg); }
+}
+
+@keyframes rotate {
+
+  16.6% { transform: rotate(135deg); }
+
+  25% { transform: rotate(135deg); }
+
+  41.6% { transform: rotate(225deg); }
+
+  50% { transform: rotate(225deg); }
+
+  66.6% { transform: rotate(315deg); }
+
+  75% { transform: rotate(315deg); }
+
+  91.6% { transform: rotate(405deg); }
+
+  100% { transform: rotate(405deg); }
+}

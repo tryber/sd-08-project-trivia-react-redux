@@ -260,7 +260,7 @@ describe('9 - [TELA DE JOGO] Crie o placar com as seguintes características:', 
       expect(then.player.score).to.be.eq(now.player.score);
     });
   });
-});
+   });
 
 describe('10 - [TELA DE JOGO] Crie um botão de \"Próxima\" que apareça após a resposta ser dada', () => {
   beforeEach(() => {
