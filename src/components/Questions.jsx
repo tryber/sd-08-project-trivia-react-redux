@@ -22,8 +22,8 @@ class Questions extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem('token');
     const questionsAmount = 5;
-    const { getQuestions } = this.props;
-    getQuestions(questionsAmount, token);
+    const { getQuestions, settings: { selectedCategory, difficulty, type } } = this.props;
+    getQuestions(questionsAmount, token, selectedCategory, difficulty, type);
   }
 
   componentDidUpdate() {
@@ -109,16 +109,24 @@ Questions.propTypes = {
   getQuestions: PropTypes.func.isRequired,
   increaseScore: PropTypes.func.isRequired,
   questionPos: PropTypes.number.isRequired,
+  settings: PropTypes.shape({
+    selectedCategory: PropTypes.string.isRequired,
+    difficulty: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({
   questions: state.game.questions,
   timer: state.game.timer,
   questionPos: state.game.questionPos,
+  settings: state.game.settings,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getQuestions: (amount, token) => dispatch(getQuestionsAction(amount, token)),
+  getQuestions: (amount, token, category, difficulty, type) => dispatch(
+    getQuestionsAction(amount, token, category, difficulty, type),
+  ),
   increaseScore: (score, diff) => dispatch(increaseScoreAction(score, diff)),
 });
 

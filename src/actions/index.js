@@ -5,3 +5,7 @@ export const DECREASE_TIME = 'DECREASE_TIME';
 export const ADD_QUESTIONS = 'ADD_QUESTIONS';
 export const NEXT_QUESTION = 'NEXT_QUESTION';
 export const RESTART_GAME = 'RESTART_GAME';
+export const ADD_CATEGORIES = 'ADD_CATEGORIES';
+export const SELECT_CATEGORY = 'SELECT_CATEGORY';
+export const SELECT_DIFF = 'SELECT_DIFF';
+export const SELECT_TYPE = 'SELECT_TYPE';
