@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../components/Header';
+
 class Feedback extends React.Component {
   constructor(props) {
     super(props);
 
     this.loadAssertions = this.loadAssertions.bind(this);
     this.renderMessage = this.renderMessage.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   loadAssertions() {
@@ -18,6 +21,11 @@ class Feedback extends React.Component {
     return { assertions, score };
   }
 
+  handleClick() {
+    const { history } = this.props;
+    history.push('/');
+  }
+
   renderMessage() {
     const THREE = 3;
     if (this.loadAssertions().assertions < THREE) {
@@ -26,7 +34,6 @@ class Feedback extends React.Component {
     return 'Mandou bem!';
   }
 
-export default class Feedback extends React.Component {
   render() {
     this.loadAssertions();
     return (
@@ -47,8 +54,20 @@ export default class Feedback extends React.Component {
         <div data-testid="feedback-total-question">
           {this.loadAssertions().assertions}
         </div>
-        <div />
+        <button
+          type="button"
+          onClick={ this.handleClick }
+          data-testid="btn-play-again"
+        >
+          Jogar novamente
+        </button>
       </div>
     );
   }
 }
+
+Feedback.propTypes = {
+  history: PropTypes.objectOf(PropTypes.object).isRequired,
+};
+
+export default Feedback;
