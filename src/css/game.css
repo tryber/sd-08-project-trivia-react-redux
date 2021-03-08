@@ -1,0 +1,11 @@
+.correctAnswer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.wrongAnswer {
+  border: 3px solid red;
+}
+
+.btn-visible {
+  display: none;
+}
