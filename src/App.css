@@ -2,56 +2,99 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: black;
 }
 
-.red-border {
-  border: 1px solid red;
+a {
+  color: white;
+  margin-top: 5px;
+  text-decoration: none;
 }
 
-.green-border {
-  border: 1px solid green;
-}
-
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: shake infinite 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  }
-}
-
-.App-header {
+.login-container {
   align-items: center;
-  background-color: #282c34;
+  background-color: rgb(66, 66, 66);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  margin: 200px auto;
+  padding: 30px;
+  width: 300px;
+}
+
+.login-button {
+  width: 185px;
+}
+
+.settings-icon {
+  width: 30px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container {
+  align-items: center;
+  background-color: rgb(66, 66, 66);
+  border-radius: 10px;
   color: white;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  justify-content: center;
-  min-height: 100vh;
+  font-size: 1.4rem;
+  height: 380px;
+  margin: 100px auto;
+  padding: 30px;
+  width: 60%;
 }
 
-.App-link {
-  color: #61dafb;
+.header-container {
+  align-items: center;
+  background-color: rgb(66, 66, 66);
+  color: white;
+  display: flex;
+  font-size: 1.4rem;
+  justify-content: space-between;
+  padding: 30px;
 }
 
-@keyframes shake {
+.settings-container {
+  align-items: center;
+  background-color: rgb(66, 66, 66);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  margin: 200px auto;
+  padding: 30px;
+  width: 300px;
+}
 
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
+.answer {
+  background-color: rgb(88, 88, 88);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  width: 300px;
+}
 
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+.answer:hover {
+  background-color: rgb(99, 99, 99);
+}
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+.correct {
+  border: 3px solid rgb(6, 240, 15);
+  border-radius: 10px;
+}
 
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+.incorrect {
+  border: 3px solid red;
+  border-radius: 10px;
 }
