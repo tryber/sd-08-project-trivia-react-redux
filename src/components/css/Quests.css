@@ -1,0 +1,38 @@
+[ data-testid = 'question-category' ] {
+  font-family: Fascinate , cursive;
+  font-size: 2rem;
+}
+
+.answersDiv {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timerDiv {
+  color: darkred;
+  font-size: 2rem;
+}
+
+.answersDiv button {
+  background-color: white;
+  border: 1px solid #515151;
+  box-shadow: 0 0 5px #000a;
+  color: #515151;
+  padding: 0.6rem;
+  transition: transform 0.2s linear;
+}
+
+.answersDiv button:disabled {
+  background-color: white;
+  color: #515151;
+}
+
+
+.answersDiv button:hover:enabled {
+  background-color: #515151;
+  border: 0;
+  color: white;
+}
+

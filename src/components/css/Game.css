@@ -1,0 +1,47 @@
+.game-header {
+  align-items: center;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 800px;
+  padding: 50px;
+}
+
+.userInfoDiv {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.scoreDiv {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.game-header img {
+  border-radius: 50%;
+  width: 40px;
+}
+
+.game-question {
+  align-items: center;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 800px;
+  padding: 50px;
+}
+
+.correct-answer:disabled {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.wrong-answer:disabled {
+  border: 3px solid red;
+}

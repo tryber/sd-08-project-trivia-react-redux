@@ -1,0 +1,36 @@
+.feedbackDiv {
+  align-items: center;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 800px;
+  padding: 50px;
+}
+
+.feedbackDiv h4 {
+  color: gray;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
+
+[ data-testid = 'feedback-text' ] {
+  font-family: Fascinate , cursive;
+  font-size: 2rem;
+}
+
+[ data-testid = 'feedback-total-score' ] {
+  color: black;
+  font-family: Fascinate , cursive;
+  font-size: 4rem;
+
+}
+
+[ data-testid = 'feedback-total-question' ] {
+  color: black;
+  font-family: Fascinate , cursive;
+  font-size: 4rem;
+
+}

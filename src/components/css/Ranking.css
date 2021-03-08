@@ -1,0 +1,48 @@
+.rankingDiv {
+  align-items: center;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 600px;
+  padding: 50px;
+}
+
+.rankListDiv {
+  align-items: center;
+  display: flex;
+  gap: 50px;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+[ data-testid = 'ranking-title' ] {
+  font-family: Fascinate , cursive;
+  font-size: 2rem;
+}
+
+.playerInfoDiv {
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  gap: 20px;
+  padding-right: 20px;
+}
+
+.rankListDiv p:nth-child( 1 ) {
+  font-family: Fascinate , cursive;
+  font-size: 4rem;
+  margin: 0;
+}
+
+.playerInfoDiv p:nth-child( 3 ) {
+  font-family: Fascinate , cursive;
+  font-size: 2rem;
+  margin: 0%;
+}
+

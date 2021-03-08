@@ -1,0 +1,54 @@
+.loginSection {
+  align-items: center;
+  box-shadow: 0 0 50px 0 #0000004b;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 600px;
+  padding: 50px;
+}
+
+a button {
+  width: 100%;
+}
+
+.loginButtons {
+  width: 50%;
+}
+
+label {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  width: 50%;
+}
+
+[ data-testid = 'settings-title' ] {
+  font-family: Fascinate , cursive;
+  font-size: 2rem;
+}
+
+.cool {
+  background-color: #515151;
+  border: 0;
+  box-shadow: 0 0 5px #000a;
+  color: white;
+  transition: transform 0.2s linear;
+}
+
+.cool:disabled {
+  background-color: #717171;
+  color: gray;
+}
+
+.cool:hover:enabled {
+  box-shadow: 2px 2px 5px #000a;
+  transform: translate(-3px, -3px);
+}
+
+.saveConfig {
+  padding: 0.6rem;
+  width: 50%;
+}
