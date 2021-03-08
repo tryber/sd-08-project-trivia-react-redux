@@ -1,0 +1,28 @@
+.questionContainer {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  padding: 20px;
+  user-select: none;
+}
+
+.questionContainer *:not( :last-child ) {
+  margin-bottom: 10px;
+}
+
+.category {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.question {
+  font-size: 1.4rem;
+  padding: 30px 0;
+  text-align: center;
+}

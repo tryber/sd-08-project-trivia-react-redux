@@ -1,0 +1,38 @@
+.answersContainer {
+
+  /* background: rgba(0, 0, 0, 0.1); */
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  user-select: none;
+}
+
+.answersContainer button {
+  background-color: var(--primary-color);
+  border: 3px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 10px;
+  transition: filter 0.2s;
+}
+
+.answersContainer button:hover {
+  filter: brightness(0.7);
+}
+
+.answersContainer button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.answersContainer *:not( :last-child ) {
+  margin-bottom: 25px;
+}

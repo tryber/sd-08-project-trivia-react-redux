@@ -1,0 +1,29 @@
+.header {
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  display: flex;
+  font-size: 1.3rem;
+  justify-content: space-between;
+  padding: 15px 35px;
+}
+
+.gravatar {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-right: 20px;
+  width: 60px;
+}
+
+.userInfo {
+  align-items: center;
+  display: flex;
+}
+
+.infos {
+  display: flex;
+}
+
+.infos *:not( :last-child ) {
+  margin-right: 30px;
+}

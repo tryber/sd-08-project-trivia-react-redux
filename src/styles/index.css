@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap') ;
+
+:root {
+
+  --primary-color: rgb(75, 75, 116);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Roboto , monospace;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ececec;
+}

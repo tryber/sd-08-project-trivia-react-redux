@@ -1,0 +1,8 @@
+.triviaQuestion {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1000px;
+  padding: 50px 20px;
+  width: 100%;
+}

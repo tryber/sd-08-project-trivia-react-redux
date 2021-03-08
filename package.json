@@ -8,14 +8,16 @@
     "crypto-js": "^4.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-icons": "^4.2.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "^4.0.3",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "cy": "cypress run",
+    "cy": "cypress run -b chrome --headless",
     "cy:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -24,7 +26,8 @@
     "eject": "react-scripts eject",
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "lint:styles": "npx stylelint '**/*.css'",
-    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx"
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+    "linters": "npm run lint && npm run lint:styles"
   },
   "eslintConfig": {
     "extends": "react-app"

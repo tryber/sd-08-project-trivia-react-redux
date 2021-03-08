@@ -1,0 +1,30 @@
+.rankingPlayerCard {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.rankingPlayerCard img {
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 60px;
+}
+
+.userInfo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  font-size: 1.3rem;
+  text-align: right;
+  width: 55px;
+}
+
+.playerName {
+  flex: 1;
+  text-align: center;
+}

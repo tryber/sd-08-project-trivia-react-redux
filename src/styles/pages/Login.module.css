@@ -1,0 +1,28 @@
+.loginContainer {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+/* .settingsLink {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  font-size: 0;
+  padding: 15px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+
+.settingsIcon {
+  color: black;
+  font-size: 3rem;
+  transition: color 0.1s , transform 0.5s ease-in-out;
+}
+
+.settingsLink:hover .settingsIcon {
+  color: var(--primary-color);
+  transform: scale(1.2) rotateZ(45deg);
+} */

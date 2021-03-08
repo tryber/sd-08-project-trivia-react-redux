@@ -1,0 +1,41 @@
+.settingsContainer {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.title {
+  background-color: var(--primary-color);
+  text-align: center;
+}
+
+.settings {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.settingsHeader h1 {
+  color: white;
+  padding: 20px;
+}
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.settingsForm select {
+  font-size: 1.4rem;
+  padding: 10px;
+}
+
+.settingsForm *:not( :last-child ) {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,63 @@
+.loading {
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: rotate;
+
+  /* background-color: red; */
+  display: inline-block;
+  height: 50px;
+  margin: 20px;
+  padding: 20px;
+  width: 50px;
+}
+
+.circle {
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: grow;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin: 6px;
+  position: absolute;
+  width: 10px;
+}
+
+.circle1 {
+  left: 0;
+  top: 0;
+}
+
+.circle2 {
+  right: 0;
+  top: 0;
+}
+
+.circle3 {
+  bottom: 0;
+  left: 0;
+}
+
+.circle4 {
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes rotate {
+
+  from {
+    transform: rotateZ(0) scale(0.7);
+  }
+
+  to { transform: rotateZ(360deg) scale(1.1); }
+}
+
+@keyframes grow {
+
+  from { transform: scale(1);}
+
+  to { transform: scale(1.4);}
+}
