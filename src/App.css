@@ -55,3 +55,11 @@
     transform: translate3d(4px, 0, 0);
   }
 }
+
+.greenBorder {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.redBorder {
+  border: 3px solid red;
+}
