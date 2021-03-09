@@ -1,0 +1,42 @@
+.loading-container {
+  left: 45%;
+  position: fixed;
+  top: 45%;
+}
+
+.spinner {
+  animation: rotate 1s linear infinite;
+  background: conic-gradient(transparent, #2fc18c);
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+
+.spinner:before, .spinner:after {
+  border-radius: 50%;
+  content: '';
+  position: absolute;
+}
+
+.spinner:before {
+  background: white;
+  height: 60px;
+  left: 10px;
+  top: 10px;
+  width: 60px;
+
+}
+
+.spinner:after {
+  background: #2fc18c;
+  height: 10px;
+  left: 37px;
+  width: 10px;
+}
+
+@keyframes rotate {
+
+  from { transform: rotateZ(0); }
+
+  to { transform: rotateZ(360deg); }
+}

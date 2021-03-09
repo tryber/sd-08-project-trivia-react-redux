@@ -1,0 +1,134 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica , Arial , sans-serif;
+  height: 100vh;
+  width: 100%;
+}
+
+.container-player {
+  align-items: center;
+  border: 2px solid #2fc18c;
+  border-radius: 4px;
+  box-shadow: 10px 10px 5px grey;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  margin-bottom: auto;
+  margin-top: auto;
+  width: 60%;
+}
+
+.header-player {
+  background-color: #2fc18c;
+  box-shadow: 0.1px 8px 5px grey;
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  gap: 20px;
+  height: 20%;
+  width: 100%;
+}
+
+.body-player {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.gravatar-image {
+  border-radius: 50%;
+  height: 60px;
+  margin-bottom: auto;
+  margin-left: 20px;
+  margin-top: auto;
+  width: 60px;
+}
+
+.player-name {
+  align-self: center;
+  width: 50%;
+}
+
+.score-player {
+  align-self: center;
+  margin-right: 2%;
+  text-align-last: right;
+  width: 50%;
+}
+
+.question-answers-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  height: 88%;
+  justify-content: center;
+}
+
+.question-answers-container h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+.answers-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.answers-container button {
+  background: linear-gradient(315deg, rgba(16, 111, 56, 1) 30%, rgba(5, 128, 93, 1) 69%);
+  border-radius: 3px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  color: white;
+  display: block;
+  font-weight: 700;
+  margin: 4px;
+  padding: 5px;
+  transition: 0.3s;
+  width: 250px;
+}
+
+.next-button-container button {
+  background: #2fc18c;
+  border: none;
+  border-radius: 5px;
+  color: rgb(238, 222, 222);
+  font-weight: 700;
+  opacity: 0.7;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.next-button-container button:hover {
+  opacity: 1;
+}
+
+.answers-container button:disabled {
+  opacity: 0.6;
+}
+
+.answers-container button:hover:enabled {
+  background: #30c350;
+}
+
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.incorrect-answer {
+  border: 3px solid red;
+}
+
+.next-button-container {
+  align-items: center;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  width: 100%;
+}

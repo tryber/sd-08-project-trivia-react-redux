@@ -1,0 +1,78 @@
+.login-page-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica , sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  height: 100vh;
+  justify-content: center;
+}
+
+.logo {
+  height: 80px;
+  margin-bottom: 20px;
+  margin-left: 27px;
+  opacity: 0.7;
+  width: 140px;
+}
+
+.form-container {
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  color: rgb(29, 31, 29);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.form-container input {
+  border: 0.8px solid rgb(98, 94, 94);
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  display: block;
+  margin: 7px;
+  text-align: center;
+}
+
+.play-button {
+  background: #2fc18c;
+  border: none;
+  border-radius: 5px;
+  color: rgb(238, 222, 222);
+  font-weight: 700;
+  margin-top: 10px;
+  opacity: 0.8;
+  padding: 8px;
+  transition: 0.3s;
+}
+
+.play-button:disabled {
+  opacity: 0.4;
+}
+
+.play-button:hover:enabled {
+  opacity: 1;
+}
+
+.configurations-button {
+  align-self: flex-end;
+  background-color: transparent;
+  background-image: url('https://iconsplace.com/wp-content/uploads/_icons/40e0d0/256/png/settings-icon-17-256.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  border: none;
+  border-radius: 3px;
+  height: 25px;
+  opacity: 0.6;
+  transition: 0.3s;
+  width: 25px;
+}
+
+.configurations-button:hover {
+  opacity: 1;
+}
