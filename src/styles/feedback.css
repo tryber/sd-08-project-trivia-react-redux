@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap') ;
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.header-feedback {
+  align-items: center;
+  display: flex;
+  font-family: DotGothic16 , sans-serif;
+  justify-content: space-between;
+}
+
+.header-feedback img {
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+
+.header-feedback p {
+  margin-right: 10px;
+}
+
+.name-gravatar {
+  display: flex;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.name-gravatar p {
+  margin-left: 10px;
+}
+
+.section-feedback {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.div-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: DotGothic16 , sans-serif;
+  width: 70%;
+}
+
+.div-section button {
+  background-color: #3489eb;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-family: DotGothic16 , sans-serif;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}

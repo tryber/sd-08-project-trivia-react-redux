@@ -54,7 +54,6 @@ export const fetchAPI = () => async (dispatch) => {
 export const triviaAPI = (token) => async (dispatch) => {
   const questionRequest = await fetch(`https://opentdb.com/api.php?amount=5&token=${token}`);
   const questionsReturn = await questionRequest.json();
-  console.log(questionsReturn);
   try {
     dispatch(questionsSuccess(questionsReturn));
   } catch (error) {

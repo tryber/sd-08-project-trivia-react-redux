@@ -28,6 +28,7 @@ class Trivia extends Component {
 
   async handleClick(api) {
     await api();
+    await this.playerLocalStorage();
     const { login } = this.props;
     if (login === true) {
       window.location.href = '/jogo';
@@ -43,6 +44,19 @@ class Trivia extends Component {
     }
 
     return false;
+  }
+
+  playerLocalStorage() {
+    const { name, email } = this.state;
+    const player = {
+      player: {
+        name,
+        assertions: 0,
+        score: 0,
+        gravatarEmail: email,
+      },
+    };
+    localStorage.setItem('state', JSON.stringify(player));
   }
 
   render() {
