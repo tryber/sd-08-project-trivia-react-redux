@@ -1,0 +1,7 @@
+.button-false {
+  border: 3px solid red;
+}
+
+.button-true {
+  border: 3px solid rgb(6, 240, 15);
+}

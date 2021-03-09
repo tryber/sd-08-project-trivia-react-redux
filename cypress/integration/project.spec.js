@@ -697,7 +697,7 @@ describe('18 - [TELA DE RANKING] Crie um botão para ir ao início', () => {
     cy.get(BUTTON_RANKING_SELECTOR).click();
     cy.get(BUTTON_GO_HOME_SELECTOR).click();
     cy.get(INPUT_PLAYER_EMAIL_SELECTOR).should('exist');
-  
+
     const storage = Object.keys(localStorage).length;
     expect(storage).to.be.lessThan(4);
   });

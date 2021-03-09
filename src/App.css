@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+.navBar {
+  border: 1px solid black;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1%;
+}
+
 .red-border {
   border: 1px solid red;
 }
