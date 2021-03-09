@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import Header from '../components/Header';
 
-// import {
-//   getScore as getScoreAction,
-//   handleUpdateCorrectAnswers as handleUpdateCorrectAnswersAction,
-// } from '../actions';
+import {
+  getScore as getScoreAction,
+  handleUpdateCorrectAnswers as handleUpdateCorrectAnswersAction,
+} from '../actions';
 
 class Game extends Component {
   constructor(props) {
@@ -26,7 +26,6 @@ class Game extends Component {
     this.nextPage = this.nextPage.bind(this);
     this.nextButton = this.nextButton.bind(this);
     this.timer = this.timer.bind(this);
-    this.handleCalculateScore = this.handleCalculateScore.bind(this);
   }
 
   componentDidMount() {
@@ -105,8 +104,8 @@ class Game extends Component {
   }
 
   handleCalculateScore() {
-    const { questions } = this.props;
-    const { questionIndex, time, score } = this.state;
+    const { questions, score, getScore } = this.props;
+    const { questionIndex, time } = this.state;
 
     const EASY = 1;
     const MEDIUM = 2;
@@ -121,21 +120,12 @@ class Game extends Component {
     if (level === 'hard') difficulty = HARD;
 
     const finalScore = score + (BASE + time * difficulty);
-    this.setState({
-      score: finalScore,
-    }, () => console.log(finalScore));
-    const localScore = JSON.parse(localStorage.getItem('state'));
-    localScore.player.score = finalScore;
-    localScore.player.assertions += 1;
-    localStorage.setItem('state', JSON.stringify(localScore));
 
-    // console.log(localScore);
-
-    // getScore(finalScore);
+    getScore(finalScore);
   }
 
   render() {
-    const { questions, loading } = this.props;
+    const { questions, loading, handleUpdateCorrectAnswers } = this.props;
     const {
       correctColor,
       incorrectColor,
@@ -186,6 +176,7 @@ class Game extends Component {
             onClick={ () => {
               this.changeColors();
               this.handleCalculateScore();
+              handleUpdateCorrectAnswers();
             } }
           >
             {questions[questionIndex].correct_answer}
@@ -196,7 +187,9 @@ class Game extends Component {
             <button
               type="button"
               data-testid="btn-next"
-              onClick={ () => this.nextPage() }
+              onClick={ () => {
+                this.nextPage();
+              } }
             >
               Próxima pergunta
             </button>
@@ -207,21 +200,20 @@ class Game extends Component {
   }
 }
 
-const mapStateToProps = ({ questions: { questions, loading } }) => ({
+const mapStateToProps = ({ questions: { questions, loading }, score: { score } }) => ({
   questions,
   loading,
-  // score,
+  score,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   // fetchQuestions: () => dispatch(fetchQuestionsThunk()),
-//   getScore: (score) => dispatch(
-//     getScoreAction(score),
-//   ),
-//   handleUpdateCorrectAnswers: () => dispatch(
-//     handleUpdateCorrectAnswersAction(),
-//   ),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  getScore: (score) => dispatch(
+    getScoreAction(score),
+  ),
+  handleUpdateCorrectAnswers: () => dispatch(
+    handleUpdateCorrectAnswersAction(),
+  ),
+});
 
 Game.propTypes = {
   loading: PropTypes.bool.isRequired,
@@ -235,8 +227,9 @@ Game.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-  // score: PropTypes.number.isRequired,
-  // getScore: PropTypes.func.isRequired,
+  score: PropTypes.number.isRequired,
+  getScore: PropTypes.func.isRequired,
+  handleUpdateCorrectAnswers: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, null)(Game);
+export default connect(mapStateToProps, mapDispatchToProps)(Game);

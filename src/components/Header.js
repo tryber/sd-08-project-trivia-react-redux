@@ -4,16 +4,17 @@ import md5 from 'crypto-js';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     currentState: {},
-  //   };
-  // }
+  constructor() {
+    super();
 
-  // componentDidMount() {
-  //   this.handleUpdateLocalStorage();
-  // }
+    this.handleUpdateStateStorage = this.handleUpdateStateStorage.bind(this);
+    this.handleUpdateRankingStorage = this.handleUpdateRankingStorage.bind(this);
+  }
+
+  componentDidUpdate() {
+    this.handleUpdateStateStorage();
+    this.handleUpdateRankingStorage();
+  }
 
   getGravatarHash() {
     const { email } = this.props;
@@ -21,28 +22,53 @@ class Header extends React.Component {
     return md5(email).toString();
   }
 
-  // handleUpdateLocalStorage() {
-  //   const { name, email } = this.props;
+  handleUpdateStateStorage() {
+    const { name, email, score, correctAnswers } = this.props;
+    const currentState = JSON.parse(localStorage.getItem('state'));
 
-  //   const state = JSON.parse(localStorage.getItem('state'));
+    const newState = {
+      ...currentState,
+      player: {
+        name,
+        gravatarEmail: email,
+        score,
+        assertions: correctAnswers,
+      },
+    };
 
-  //   const updatedState = {
-  //     ...state,
-  //     player: {
-  //       name,
-  //       gravatarEmail: email,
-  //       score: state.player.score,
-  //     },
-  //   };
+    localStorage.setItem('state', JSON.stringify(newState));
+  }
 
-  //   this.setState({
-  //     currentState: updatedState,
-  //   });
-  // }
+  handleUpdateRankingStorage() {
+    const { name, score, email } = this.props;
+
+    let ranking = JSON.parse(localStorage.getItem('ranking'));
+
+    const user = ranking.some((each, index) => {
+      if (each.name === name) {
+        ranking[index] = {
+          name,
+          score,
+          picture: email,
+        };
+      }
+
+      return each.name === name;
+    });
+
+    if (!user) {
+      ranking = [
+        ...ranking,
+        { name, score, picture: email },
+      ];
+    }
+
+    localStorage.setItem('ranking',
+      JSON.stringify(ranking.sort((a, b) => b.score - a.score)));
+  }
 
   render() {
     const { name, score } = this.props;
-    // const { name, score } = currentState.player;
 
     return (
       <header>
@@ -56,16 +82,21 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = ({ login: { name, email } }) => ({
+const mapStateToProps = ({
+  login: { name, email },
+  score: { score, correctAnswers },
+}) => ({
   name,
   email,
-  // score,
+  score,
+  correctAnswers,
 });
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   score: PropTypes.number.isRequired,
+  correctAnswers: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps, null)(Header);

@@ -17,6 +17,9 @@ class Login extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.fetchApi = this.fetchApi.bind(this);
     this.redirectSettings = this.redirectSettings.bind(this);
+    this.handleSetPlayerStorage = this.handleSetPlayerStorage.bind(this);
+    this.handleSetRankingStorage = this.handleSetRankingStorage.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     // this.setLocalStorageState = this.setLocalStorageState.bind(this);
   }
 
@@ -84,14 +87,45 @@ class Login extends React.Component {
     }
   }
 
+  handleSetPlayerStorage() {
+    const { name, email } = this.state;
+    const { score, correctAnswers } = this.props;
+
+    const stateStorage = {
+      player: {
+        name,
+        gravatarEmail: email,
+        score,
+        assertions: correctAnswers,
+      },
+    };
+
+    localStorage.setItem('state', JSON.stringify(stateStorage));
+  }
+
+  handleSetRankingStorage() {
+    const { name, email } = this.state;
+    const { score } = this.props;
+
+    const currentRanking = JSON.parse(localStorage.getItem('ranking'));
+    let newRanking = [];
+
+    if (!currentRanking) {
+      newRanking = [{ name, score, picture: email }];
+      localStorage.setItem('ranking', JSON.stringify(newRanking));
+    }
+  }
+
+  handleSubmit() {
+    const { email, name } = this.state;
+
+    this.handleClick(email, name);
+    this.handleSetPlayerStorage();
+    this.handleSetRankingStorage();
+  }
+
   render() {
     const { buttonDisabled, email, name } = this.state;
-    const playerInfo = { player: {
-      name,
-      gravatarEmail: email,
-      assertions: 0,
-      score: 0,
-    } };
 
     return (
       <div>
@@ -121,10 +155,7 @@ class Login extends React.Component {
             disabled={ buttonDisabled }
             type="button"
             data-testid="btn-play"
-            onClick={ () => {
-              this.handleClick(email, name);
-              localStorage.setItem('state', JSON.stringify(playerInfo));
-            } }
+            onClick={ this.handleSubmit }
           >
             Jogar
           </button>
@@ -141,9 +172,10 @@ class Login extends React.Component {
   }
 }
 
-// const mapStateToProps = ({ score: { score } }) => ({
-//   score,
-// });
+const mapStateToProps = ({ score: { score, correctAnswers } }) => ({
+  score,
+  correctAnswers,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   sendLogin: (email, name) => dispatch(setLogin(email, name)),
@@ -156,7 +188,8 @@ Login.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-  // score: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  correctAnswers: PropTypes.number.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
