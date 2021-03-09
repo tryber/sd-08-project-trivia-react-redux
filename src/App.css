@@ -3,16 +3,16 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 25vmin;
   pointer-events: none;
 }
 
-.red-border {
-  border: 1px solid red;
+.redBorder {
+  border: 3px solid red;
 }
 
-.green-border {
-  border: 1px solid green;
+.greenBorder {
+  border: 3px solid rgb(6, 240, 15);
 }
 
 @media ( prefers-reduced-motion : no-preference ) {
@@ -30,11 +30,20 @@
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.config-icon {
+  background-color: transparent;
+  border: none;
+}
+
+.config-icon img {
+  height: 100px;
 }
 
 @keyframes shake {
