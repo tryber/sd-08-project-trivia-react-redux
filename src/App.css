@@ -55,3 +55,19 @@
     transform: translate3d(4px, 0, 0);
   }
 }
+
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.wrong-answer {
+  border: 3px solid red;
+}
+
+.next-question-btn-not-visible {
+  display: none;
+}
+
+.next-question-btn-visible {
+  display: block;
+}

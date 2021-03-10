@@ -1,16 +1,30 @@
 import React from 'react';
-import logo from './trivia.png';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function App() {
+import Home from './pages/Home';
+import './App.css';
+import GameScreen from './pages/GameScreen';
+import ConfigScreen from './pages/ConfigScreen';
+import FeedBackScreen from './pages/FeedBackScreen';
+import RankingScreen from './pages/RankingScreen';
+
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={ logo } className="App-logo" alt="logo" />
-        <p>
-          SUA VEZ
-        </p>
-      </header>
-    </div>
+    <Switch>
+      <Route path="/ranking" component={ RankingScreen } />
+      <Route path="/feedbackscreen" component={ FeedBackScreen } />
+      <Route path="/configscreen" component={ ConfigScreen } />
+      <Route path="/gamescreen" component={ GameScreen } />
+      <Route exact path="/" component={ Home } />
+    </Switch>
   );
 }
+
+const mapStateToProps = (state) => ({
+  email: state.email,
+  nome: state.nome,
+});
+
+export default connect(mapStateToProps)(App);
+// fix
