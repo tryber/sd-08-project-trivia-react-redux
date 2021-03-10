@@ -1,0 +1,29 @@
+.question-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 3vmin;
+}
+
+.question-box .question-class {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.question-box .answer-class {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+
+.answer-button {
+  border: 1px solid black;
+}
+
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.wrong-answer {
+  border: 3px solid red;
+}

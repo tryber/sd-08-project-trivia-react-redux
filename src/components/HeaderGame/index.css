@@ -1,0 +1,7 @@
+.header-game {
+  background-color: #f0f0f0;
+  display: flex;
+  height: 30px;
+  justify-content: space-between;
+  padding: 20px;
+}
