@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class FeedbackMessage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleButtonClickRanking = this.handleButtonClickRanking.bind(this);
+  }
+
   message() {
     const { player } = this.props;
     const THREE = 3;
@@ -15,11 +21,28 @@ class FeedbackMessage extends React.Component {
     );
   }
 
+  messageScore() {
+    const storage = JSON.parse(localStorage.getItem('state'));
+    const { player: { score } } = storage;
+    return `Com total de ${score} pontos`;
+  }
+
   render() {
     return (
       <>
-        { this.message() }
-        <h3> Informações </h3>
+        <div data-testid="feedback-total-score">
+          {this.messageScore()}
+        </div>
+        <div data-testid="feedback-total-question">
+          {this.message()}
+        </div>
+        <button
+          type="button"
+          data-testid="btn-ranking"
+          onClick={ this.handleButtonClickRanking }
+        >
+          Ver Ranking
+        </button>
       </>
     );
   }
