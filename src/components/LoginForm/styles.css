@@ -1,0 +1,33 @@
+.loginForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm form {
+  align-items: center;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  width: 200px;
+}
+
+.loginForm input {
+  background-color: white;
+  border: solid 1px rgb(148, 137, 137);
+  border-radius: 5px;
+  margin: 0.4rem;
+  padding: 0.4rem;
+}
+
+.loginForm input::placeholder {
+  text-align: center;
+}
+
+.loginForm button {
+  border: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+}

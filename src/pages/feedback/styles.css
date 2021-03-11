@@ -1,0 +1,18 @@
+body {
+  color: white;
+}
+
+p {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(65, 255, 236, 0.4);
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  color: white;
+  margin: 0.5rem;
+  padding: 1rem;
+  text-decoration: none;
+}

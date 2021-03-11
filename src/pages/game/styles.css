@@ -1,0 +1,26 @@
+body {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.card-game {
+  display: flexbox;
+  justify-content: center;
+  width: 30rem;
+}
+
+@media ( max-width : 600px ) {
+
+  .card-game {
+    display: flexbox;
+    justify-content: center;
+    max-width: 20rem;
+  }
+
+  .answers-btn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

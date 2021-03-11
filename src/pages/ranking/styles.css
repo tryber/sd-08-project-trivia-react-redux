@@ -1,0 +1,22 @@
+body {
+  color: white;
+}
+
+h3 {
+  background-color: rgba(0, 0, 0, 0.356);
+  border-radius: 10px;
+  font-family: '"Gloria Hallelujah"' , cursive;
+  text-align: center;
+}
+
+.btn {
+  background-color: rgba(65, 255, 236, 0.4);
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  width: 12rem;
+}

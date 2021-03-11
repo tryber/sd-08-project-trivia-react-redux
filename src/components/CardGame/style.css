@@ -1,0 +1,54 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+section {
+  display: flexbox;
+  justify-content: space-evenly;
+}
+
+.question-card {
+  max-width: 70%;
+  text-align: center;
+}
+
+h1 {
+  font-family: '"Gloria Hallelujah"' , cursive;
+  text-align: center;
+}
+
+.green {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.red {
+  border: 3px solid red;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 0.8rem;
+  box-sizing: border-box;
+  color: white;
+  margin: 0.5rem;
+  outline: none;
+  padding: 1rem;
+}
+
+.answers-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.next-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.timer {
+  display: flex;
+  font-family: '"Gloria Hallelujah"' , cursive;
+  font-size: 1.5rem;
+  justify-content: center;
+}

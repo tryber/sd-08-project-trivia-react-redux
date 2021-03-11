@@ -1,0 +1,18 @@
+body {
+  color: white;
+}
+
+header {
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.356);
+  border-radius: 1rem;
+  display: inline-flex;
+  height: 3rem;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.gravatar {
+  border-radius: 50%;
+  height: 2rem;
+}
