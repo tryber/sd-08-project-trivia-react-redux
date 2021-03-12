@@ -1,10 +1,111 @@
-.App {
+body {
+  background-color: #282c34;
+  color: white;
+}
+
+header {
+  align-items: center;
+  background-color: rgb(22, 27, 34);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+  padding: 14px 40px;
+}
+
+.div-header {
+  align-items: center;
+  display: flex;
+}
+
+.div-header h2 {
+  margin-left: 20px;
+}
+
+.score {
+  font-size: 2em;
+}
+
+.timer {
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  font-weight: 900;
+  height: 60px;
+  margin-left: 65px;
   text-align: center;
+  width: 60px;
+}
+
+.timer p {
+  font-size: 2.1em;
+  font-weight: 900;
+  margin-top: 7px;
+}
+
+.img-icaro {
+  left: 15px;
+  position: absolute;
+  top: 0;
+  width: 350px;
+}
+
+.img-let {
+  bottom: 35px;
+  left: 50px;
+  position: absolute;
+  width: 250px;
+}
+
+.img-wolf {
+  position: absolute;
+  right: 120px;
+  top: 25px;
+  width: 230px;
+}
+
+.img-alberto {
+  bottom: 35px;
+  position: absolute;
+  right: 40%;
+  width: 21%;
+}
+
+.img-guilherme {
+  bottom: 35px;
+  position: absolute;
+  right: 120px;
+  width: 250px;
+}
+
+.nick-name {
+  font-size: 3em;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 120px;
+  margin-top: 20px;
   pointer-events: none;
+}
+
+.btn-question {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  color: black;
+  margin: 5px 0;
+  padding: 7px;
+  width: 100%;
+}
+
+.button-flex {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.question {
+  margin: auto;
+  width: 50%;
 }
 
 .red-border {
@@ -13,6 +114,51 @@
 
 .green-border {
   border: 1px solid green;
+}
+
+.feedback {
+  margin: auto;
+  margin-top: 100px;
+  width: 40%;
+}
+
+.feedback-title {
+  font-size: 3.5em;
+  margin-bottom: 40px;
+}
+
+.feedback-score {
+  margin-bottom: 80px;
+}
+
+.div-ranking {
+  margin: 50px 15px;
+}
+
+.ranking-container {
+  margin-top: 35px;
+  padding-left: 50px;
+}
+
+.ranking-page {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.span-rankin {
+  font-size: 1.5em;
+  margin: 0 10px;
+}
+
+.gravatar-ranking {
+  width: 55px;
+}
+
+.button-ranking {
+  margin-bottom: 20px;
+  margin-left: 100px;
 }
 
 @media ( prefers-reduced-motion : no-preference ) {
@@ -30,7 +176,7 @@
   flex-direction: column;
   font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .App-link {
@@ -54,4 +200,16 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.wrong-answer {
+  border: 3px solid red;
+}
+
+.btn {
+  margin-left: 15px;
 }
