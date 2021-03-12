@@ -1,0 +1,9 @@
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+  transition: 200ms;
+}
+
+.wrong-answer {
+  border: 3px solid red;
+  transition: 200ms;
+}
