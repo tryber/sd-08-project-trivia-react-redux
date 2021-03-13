@@ -36,7 +36,6 @@ function shuffle(array) {
 }
 
 function mapQuestions({ results }) {
-  console.log(results);
   return results.map((question) => {
     const questionInfo = {
       category: question.category,
@@ -74,7 +73,6 @@ export function requestToken(name, email, score, assertions, settings) {
       localStorage.setItem('token', JSON.stringify(token));
       localStorage.setItem('state', JSON.stringify({ player: state }));
       const question = mapQuestions(questions);
-      console.log('question', question);
       dispatch(actionFirstLogin(state, question));
     };
   }
@@ -93,7 +91,8 @@ export function requestToken(name, email, score, assertions, settings) {
       };
       localStorage.setItem('token', JSON.stringify(newToken));
       localStorage.setItem('state', JSON.stringify({ player: state }));
-      dispatch(actionFirstLogin(state, questionsNewToken));
+      const question = mapQuestions(questionsNewToken);
+      dispatch(actionFirstLogin(state, question));
     } else {
       const questionsNoErrorCode = await requestQuestions(token, settings);
       const gravatarEmail = md5(email).toString();

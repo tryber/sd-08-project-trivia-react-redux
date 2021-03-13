@@ -39,6 +39,7 @@ class CardQuestion extends React.Component {
 
   render() {
     const { questions, selected } = this.props;
+    console.log('questions cheguei aqui 123', questions);
     const { category, question, options } = questions;
     return (
       <div className="question">
