@@ -12,7 +12,7 @@ export default function loginReducer(state = INITIAL_STATE, action) {
     return {
       ...state,
       player: action.state,
-      questions: action.questions.results,
+      questions: action.questions,
       shouldRedirect: true,
     };
   case RETURN_LOGIN:

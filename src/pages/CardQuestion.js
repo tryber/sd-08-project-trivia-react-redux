@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleSelected, sendScore } from '../redux/actions';
@@ -42,7 +43,11 @@ class CardQuestion extends React.Component {
     return (
       <div className="question">
         <h1 data-testid="question-category">{category}</h1>
-        <h2 data-testid="question-text">{question}</h2>
+        <h2 data-testid="question-text">
+          <ReactMarkdown
+            source={ question }
+          />
+        </h2>
         {options.map((alternatives) => (
           <button
             type="button"
@@ -56,7 +61,9 @@ class CardQuestion extends React.Component {
             }
             onClick={ () => this.handleClick(alternatives.className) }
           >
-            {alternatives.option}
+            <ReactMarkdown
+              source={ alternatives.option }
+            />
           </button>
         ))}
       </div>

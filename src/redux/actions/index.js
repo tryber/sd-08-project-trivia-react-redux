@@ -28,6 +28,35 @@ function requestQuestions(token, settings) {
     .then((data) => data);
 }
 
+// função retirado do site https://javascript.info/task/shuffle
+function shuffle(array) {
+  const half = 0.5;
+  const sortOptions = array.sort(() => Math.random() - half);
+  return sortOptions;
+}
+
+function mapQuestions({ results }) {
+  return results.map((question) => {
+    const questionInfo = {
+      category: question.category,
+      type: question.type,
+      difficulty: question.difficulty,
+      question: question.question,
+    };
+    const correctOption = [
+      { option: question.correct_answer, className: 'correct-answer' },
+    ];
+    const wrongOptions = question.incorrect_answers.map((wrongOption) => ({
+      option: wrongOption,
+      className: 'wrong-answer',
+    }));
+    const options = [...correctOption, ...wrongOptions];
+    const shuffleOptions = shuffle(options);
+    questionInfo.options = shuffleOptions;
+    return questionInfo;
+  });
+}
+
 export function requestToken(name, email, score, assertions, settings) {
   const errorCode = 3;
   if (localStorage.token === undefined) {
@@ -43,7 +72,8 @@ export function requestToken(name, email, score, assertions, settings) {
       };
       localStorage.setItem('token', JSON.stringify(token));
       localStorage.setItem('state', JSON.stringify({ player: state }));
-      dispatch(actionFirstLogin(state, questions));
+      const question = mapQuestions(questions);
+      dispatch(actionFirstLogin(state, question));
     };
   }
   return async (dispatch) => {
@@ -61,7 +91,8 @@ export function requestToken(name, email, score, assertions, settings) {
       };
       localStorage.setItem('token', JSON.stringify(newToken));
       localStorage.setItem('state', JSON.stringify({ player: state }));
-      dispatch(actionFirstLogin(state, questionsNewToken));
+      const question = mapQuestions(questionsNewToken);
+      dispatch(actionFirstLogin(state, question));
     } else {
       const questionsNoErrorCode = await requestQuestions(token, settings);
       const gravatarEmail = md5(email).toString();
@@ -72,7 +103,8 @@ export function requestToken(name, email, score, assertions, settings) {
         gravatarEmail,
       };
       localStorage.setItem('state', JSON.stringify({ player: state }));
-      dispatch(actionFirstLogin(state, questionsNoErrorCode));
+      const question = mapQuestions(questionsNoErrorCode);
+      dispatch(actionFirstLogin(state, question));
     }
   };
 }

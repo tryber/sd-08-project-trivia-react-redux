@@ -32,37 +32,14 @@ class Game extends React.Component {
     }
   }
 
-  mapQuestions(questions) {
-    return questions.map((question) => {
-      const questionInfo = {
-        category: question.category,
-        type: question.type,
-        difficulty: question.difficulty,
-        question: question.question,
-      };
-      const correctOption = [
-        { option: question.correct_answer, className: 'correct-answer' },
-      ];
-      const wrongOptions = question.incorrect_answers.map((wrongOption) => ({
-        option: wrongOption,
-        className: 'wrong-answer',
-      }));
-      const options = [...correctOption, ...wrongOptions];
-      const shuffleOptions = options;
-      questionInfo.options = shuffleOptions;
-      return questionInfo;
-    });
-  }
-
   render() {
     const { questionIndex } = this.state;
     const { questions, selected } = this.props;
-    const shuffleOptions = this.mapQuestions(questions);
     return (
       <div>
         <Header />
         <Time />
-        <CardQuestion questions={ shuffleOptions[questionIndex] } />
+        <CardQuestion questions={ questions[questionIndex] } />
         {selected ? (
           <div className="button-flex">
             <button
@@ -95,7 +72,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
 
 Game.propTypes = {
-  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  questions: PropTypes.shape(PropTypes.arrayOf(PropTypes.string)).isRequired,
   toggleSelectedProp: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
   nextQuestionProp: PropTypes.func.isRequired,
