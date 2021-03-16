@@ -27,3 +27,6 @@ yarn-error.log*
 cypress/screenshots/
 cypress/videos/
 cypress/reports/
+cypress/integration/project.spec.js
+
+debug.js
