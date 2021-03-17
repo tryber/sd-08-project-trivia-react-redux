@@ -1,0 +1,27 @@
+body {
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.correct-answer {
+  border: 3px solid rgb(6, 240, 15);
+  border-radius: 15px;
+}
+
+.incorrect-answers {
+  border: 3px solid red;
+  border-radius: 15px;
+}
+
+.next-btn-visible {
+  visibility: visible;
+}
+
+.next-btn-visible-hidden {
+  visibility: hidden;
+}
