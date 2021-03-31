@@ -1,0 +1,43 @@
+body {
+  display: flex;
+}
+
+form {
+  color: white;
+  text-align: center;
+}
+
+.selects {
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+form select {
+  align-content: flex-end;
+  background-color: white;
+  border: solid 1px rgb(148, 137, 137);
+  border-radius: 5px;
+  margin: 0 1rem;
+  padding: 0.3rem 0.8rem;
+}
+
+form label {
+  display: block;
+  font-family: '"Gloria Hallelujah"' , cursive;
+  margin: 0.5rem;
+}
+
+h2 {
+  font-family: '"Gloria Hallelujah"' , cursive;
+  margin: 0;
+}
+
+.home-btn {
+  background-color: rgba(65, 255, 236, 0.4);
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.8rem 5rem;
+  text-decoration: none;
+}

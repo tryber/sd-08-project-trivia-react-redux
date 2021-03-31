@@ -1,0 +1,71 @@
+body {
+  align-items: center;
+
+  /* background-image: url('../../backgroundLogin.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap') ;
+
+.group-name {
+  color: rgba(0, 255, 255, 0.5);
+  font-family: '"Gloria Hallelujah"' , cursive;
+  font-size: 4.5rem;
+  left: 28%;
+  margin-top: -150px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 2px 2px white;
+}
+
+.login {
+  color: white;
+  font-weight: 700;
+  height: auto;
+}
+
+.login button {
+  background-color: rgba(255, 177, 32, 0.9);
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+  padding: 0.8rem 4.05rem;
+  text-decoration: none;
+  text-shadow: 2px 2px darkgoldenrod;
+}
+
+.App-logo {
+  display: block;
+  height: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  opacity: 0.75;
+  width: 50%;
+}
+
+.login-btn {
+  background-color: rgba(65, 255, 236, 0.4);
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  left: 42.5%;
+  margin-top: 0.5rem;
+  padding: 0.8rem 2.8rem;
+  position: absolute;
+  text-decoration: none;
+}
+
+.attribution {
+  bottom: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  left: 1rem;
+  position: absolute;
+  text-decoration: none;
+}
