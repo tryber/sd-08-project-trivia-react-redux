@@ -16,6 +16,7 @@ class Login extends React.Component {
     saveInputs({ [id]: value });
   }
 
+  // test
   async handleClick(event) {
     event.preventDefault();
     const { fetchTriviaToken, history } = this.props;
